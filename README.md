@@ -1,566 +1,559 @@
 <div align="center">
 
-# 🤖 Agents Collection
+# 🤖 AGENTS-COLLECTION
 
-**The most comprehensive multi-platform AI agent library on a single machine.**
+### The Most Comprehensive AI Agent Library on the Planet
 
-*3,475 files · 373 MB · 15 source locations · 11 platforms · 748 skills · 784 agent definitions*
-
-[![Agents](https://img.shields.io/badge/Agents-784-blue?style=for-the-badge&logo=robot&logoColor=white)](./agents/)
-[![Skills](https://img.shields.io/badge/Skills-748-green?style=for-the-badge&logo=puzzle&logoColor=white)](./skills/)
-[![Prompts](https://img.shields.io/badge/Prompts-141-purple?style=for-the-badge&logo=chat&logoColor=white)](./prompts/)
-[![Platforms](https://img.shields.io/badge/Platforms-11-orange?style=for-the-badge&logo=layers&logoColor=white)](./agents/)
-[![Size](https://img.shields.io/badge/Size-373MB-red?style=for-the-badge&logo=database&logoColor=white)](./)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](./LICENSE)
+**A unified archive of AI agent definitions, skills, prompts, and configurations**
+**collected, converted, and deployed across 11 AI coding platforms.**
 
 ---
 
-*Collected from Claude Code · AntiGravity · Cursor · OpenCode · OpenClaw · NanoClaw · NanoBot · ZeroClaw · PicoClaw · GitHub Copilot · Everything-Claude-Code*
+[![Agents](https://img.shields.io/badge/AGENTS-700%2B-blueviolet?style=for-the-badge&logo=robot)](#-agents)
+[![Skills](https://img.shields.io/badge/SKILLS-860%2B-blue?style=for-the-badge&logo=lightning)](#-skills)
+[![Prompts](https://img.shields.io/badge/PROMPTS-141-orange?style=for-the-badge&logo=chat)](#-prompts)
+[![Platforms](https://img.shields.io/badge/PLATFORMS-11-green?style=for-the-badge&logo=grid)](#-platform-coverage)
+[![Files](https://img.shields.io/badge/FILES-2%2C700%2B-red?style=for-the-badge&logo=files)](#-repository-structure)
+[![License](https://img.shields.io/badge/LICENSE-MIT-yellow?style=for-the-badge&logo=law)](LICENSE)
 
 </div>
 
 ---
 
-## Table of Contents
+## 📖 TABLE OF CONTENTS
 
-- [What Is This](#what-is-this)
-- [Collection Size](#collection-size)
-- [Quick Start](#quick-start)
-- [Platform Coverage](#platform-coverage)
-- [Agents](#agents-784-definitions)
-- [Skills](#skills-748-installable-capabilities)
-- [Prompts](#prompts-141-files)
-- [Plugins & Extensions](#plugins--extensions-560-files)
-- [Workflows](#workflows-9-files)
-- [MCP Configs](#mcp-configs-4-files)
-- [Hooks](#hooks-8-files)
-- [Rules](#rules-19-files)
-- [Configs](#configs-7-files)
-- [Docs & Agent Protocols](#docs--agent-protocols-218-files)
-- [Directory Structure](#directory-structure)
-- [Source Locations](#source-locations-scanned)
-- [Find Anything Fast](#find-anything-fast)
+| # | Section |
+|---|---------|
+| 1 | [What Is This?](#-what-is-this) |
+| 2 | [Platform Coverage](#-platform-coverage) |
+| 3 | [Repository Structure](#-repository-structure) |
+| 4 | [File Type Breakdown](#-file-type-breakdown) |
+| 5 | [Agents](#-agents) |
+| 6 | [Skills](#-skills) |
+| 7 | [Prompts](#-prompts) |
+| 8 | [Plugins, MCP, Hooks, Configs](#-plugins--mcp--hooks--configs) |
+| 9 | [The 68 Core Agency Agents](#-the-68-core-agency-agents) |
+| 10 | [How To Use](#-how-to-use) |
+| 11 | [References & Source Repos](#-references--source-repos) |
+| 12 | [Credits & Contributions](#-credits--contributions) |
 
 ---
 
-## What Is This
+## 🧠 WHAT IS THIS?
 
-A single, organized collection of every AI agent, skill, prompt, workflow, plugin, hook, MCP config, and agent protocol scattered across a multi-platform AI engineering environment.
+This repository is a **living snapshot** of an AI-native development environment — every agent definition, skill file, prompt, workflow, MCP server config, hook, plugin, and platform config collected from a single power-user's machine across **11 AI coding assistants**.
 
-**Built from 15 source locations.** Scanned by 4 parallel AI agents. Organized into a structured library you can browse, reference, copy from, and build on.
-
-**Who it's for:**
-- AI engineers building multi-agent systems
-- Developers integrating AI tools into existing workflows
-- Researchers studying agent design patterns across platforms
-- Anyone building with Claude Code, Cursor, OpenCode, or OpenClaw
+**Core value propositions:**
+- 🔍 **Discover** — Browse 700+ unique agent definitions in one place
+- 🔄 **Cross-platform** — See how the same agent is expressed in 6+ different formats
+- 🚀 **Deploy** — Copy any folder directly into your own tool's config directory
+- 📚 **Learn** — Study agent design patterns, skill structures, and prompt engineering at scale
 
 ---
 
-## Collection Size
+## 🖥️ PLATFORM COVERAGE
 
-| Metric | Value |
-|---|---|
-| **Total disk size** | **373 MB** |
-| **Total files** | **3,475** |
-| **Total folders** | **1,566** |
-| **Agent definitions** | **784** |
-| **Skills** | **748** |
-| **Prompts** | **141** |
-| **Platforms covered** | **11** |
-| **Source locations** | **15** |
-
-### Size by Category
-
-| Category | Size | Files |
-|---|---|---|
-| `agents/` | 355 MB | 1,391 |
-| `skills/` | 9.4 MB | 1,117 |
-| `plugins/` | 4.2 MB | 560 |
-| `docs/` | 2.1 MB | 218 |
-| `prompts/` | 1.6 MB | 141 |
-| `workflows/` | 200 KB | 9 |
-| `configs/` | 100 KB | 7 |
-| `rules/` | 80 KB | 19 |
-| `hooks/` | 60 KB | 8 |
-| `mcp/` | 20 KB | 4 |
+| Platform | Type | Agents/Skills | Source Folder | Global Config Path |
+|----------|------|:---:|---------------|-------------------|
+| **Claude Code** | AI CLI | 129 agents | `AGENTS/CLAUDE-CODE/` | `~/.claude/agents/` |
+| **AntiGravity** (Gemini) | AI CLI | 82 skills | `AGENTS/ANTIGRAVITY/SKILLS/` | `~/.gemini/antigravity/skills/` |
+| **Cursor** | AI IDE | 68 rules | `AGENTS/CURSOR/` | `~/.cursor/rules/` |
+| **OpenCode** | AI Editor | 68 agents | `AGENTS/OPENCODE/` | `~/.config/opencode/agent/` |
+| **GitHub Copilot** | AI Pair | 68 agents | `AGENTS/PICOCLAW/` | `~/.github/copilot-instructions.md` |
+| **NanoBot** | Agent Runner | 68 skills | `SKILLS/NANOBOT/` | `~/.nanobot/skills/` |
+| **NanoClaw** (Claude) | Agent Platform | 89 skills | `SKILLS/NANOCLAW/` | `.claude/skills/` |
+| **OpenClaw** | Multi-Agent | 22 agents | `AGENTS/OPENCLAW/` | `.openclaw/agents/` |
+| **PicoClaw** (Copilot) | Code Agent | 2 configs | `AGENTS/PICOCLAW/` | `.github/copilot-instructions.md` |
+| **ZeroClaw** (Gemini) | Code Agent | 69 prompts | `PROMPTS/ZEROCLAW-GEMINI/` | `.gemini/agents/` |
+| **Everything-CC** | Plugin Pack | 13 agents | `AGENTS/EVERYTHING-CC/` | `~/.claude/agents/` |
 
 ---
 
-## Quick Start
+## 📁 REPOSITORY STRUCTURE
 
-```bash
-# Browse agents by platform
-ls agents/claude-code/        # 129 Claude Code agents
-ls agents/antigravity/        # 74 AntiGravity skills
-ls agents/cursor/             # 68 Cursor rules (.mdc)
-ls agents/opencode/           # 68 OpenCode agents
-ls agents/nanobot/            # 69 NanoBot skills
-ls agents/agency-source/      # 68-agent source library
-
-# Find a specific agent by name
-grep -r "security" agents/ --include="*.md" -l
-
-# Browse skills by platform
-ls skills/claude-code/        # 499 Claude skills
-ls skills/nanoclaw/           # 89 NanoClaw skills
-ls skills/nanobot/            # 69 NanoBot skills
-ls skills/everything-cc/      # 99 Everything-CC skills
-
-# Find prompts
-ls prompts/openclaw-pi/       # 72 Pi assistant prompts
-ls prompts/zeroclaw-gemini/   # 69 Gemini Code Assist agents
-
-# Check the master index
-cat INDEX.md
+```
+AGENTS-COLLECTION/
+│
+├── AGENTS/                        ← Agent definitions by platform
+│   ├── CLAUDE-CODE/               │   129 .md files — global Claude Code agents
+│   ├── ANTIGRAVITY/               │   AntiGravity (Gemini CLI) data
+│   │   ├── SKILLS/                │   82 skill folders — each with SKILL.md
+│   │   ├── ANNOTATIONS/           │   Code annotation data
+│   │   ├── RULES/                 │   AntiGravity rule files (.pbtxt)
+│   │   └── WORKFLOWS/             │   Workflow definitions
+│   ├── CURSOR/                    │   68 .mdc cursor rule files
+│   ├── OPENCODE/                  │   68 .md OpenCode agent definitions
+│   ├── PICOCLAW/                  │   GitHub Copilot instruction files
+│   ├── NANOCLAW/                  │   41 NanoClaw agent files
+│   ├── OPENCLAW/                  │   22 multi-agent team configs
+│   │   ├── FEATURE-DEV_*/         │   6-agent feature dev team
+│   │   ├── BUG-FIX_*/             │   6-agent bug fix team
+│   │   └── SECURITY-AUDIT_*/      │   7-agent security team
+│   ├── EVERYTHING-CC/             │   13 Everything-Claude-Code agents
+│   └── AGENCY-SOURCE/             │   85 source agents (canonical MD)
+│       ├── DESIGN/                │   7 design agents
+│       ├── ENGINEERING/           │   11 engineering agents
+│       ├── MARKETING/             │   8 marketing agents
+│       ├── PRODUCT/               │   6 product agents
+│       ├── PROJECT-MANAGEMENT/    │   5 PM agents
+│       ├── SPECIALIZED/           │   14 specialized agents
+│       ├── SPATIAL-COMPUTING/     │   5 XR/spatial agents
+│       ├── SUPPORT/               │   5 support agents
+│       ├── TESTING/               │   6 testing agents
+│       └── STRATEGY/              │   extra strategy agents
+│
+├── SKILLS/                        ← Installable skills & capabilities
+│   ├── CLAUDE-CODE/               │   499 files — SKILL.md + manifests
+│   ├── NANOCLAW/                  │   262 files — 89 containerized skills
+│   ├── OPENCLAW/                  │
+│   │   ├── SRC/                   │   27 files — global OpenClaw skills
+│   │   └── PROJECT/               │   74 files — project-level skills
+│   ├── NANOBOT/                   │   69 folders — skill.json + SKILL.md
+│   └── EVERYTHING-CC/             │   48 files + 51 OpenCode skill configs
+│       └── OPENCODE/              │
+│
+├── PROMPTS/                       ← Prompt collections
+│   ├── OPENCLAW-PI/               │   72 Pi prompts (frontmatter .md)
+│   └── ZEROCLAW-GEMINI/           │   69 Gemini Code Assist agent files
+│
+├── PLUGINS/                       ← Plugin manifests & extensions
+│   ├── CLAUDE-CODE/               │   500 files — manifests + docs
+│   └── OPENCLAW/                  │   9 OpenClaw extension files
+│
+├── WORKFLOWS/                     ← Workflow definitions & plans
+│   ├── CLAUDE-PLANS/              │   8 Claude Code implementation plans
+│   └── OPENCLAW/WORKFLOWS/        │   1 OpenClaw workflow definition
+│
+├── MCP/                           ← MCP server configs (secrets redacted)
+│   ├── CLAUDE-CODE/               │   mcp.json + .mcp.json
+│   ├── NANOCLAW/                  │   .mcp.json
+│   ├── CURSOR/                    │   mcp.json
+│   └── OPENCLAW/                  │   MCP configs
+│
+├── HOOKS/                         ← Pre/post execution hooks
+│   ├── CLAUDE-CODE/               │   Claude Code hooks
+│   └── OPENCLAW/                  │   OpenClaw hooks
+│
+├── RULES/                         ← Rule files
+│   └── CLAUDE-CODE/               │   .md rule files (coding style, git, etc.)
+│
+├── DOCS/                          ← Documentation
+│   ├── NANOCLAW/                  │   Architecture docs
+│   ├── OPENCLAW/                  │   AGENTS.md, CLAUDE.md
+│   ├── ZEROCLAW/                  │   AGENTS.md, CLAUDE.md
+│   └── PICOCLAW/                  │   19 doc files
+│
+└── CONFIGS/                       ← Platform configs (secrets redacted)
+    ├── CLAUDE-CODE/               │   GEMINI.md
+    ├── OPENCLAW/                  │   openclaw.json
+    ├── NANOBOT/                   │   config.json
+    ├── CURSOR/                    │   mcp.json, cli-config.json
+    ├── PICOCLAW/                  │   config.json
+    └── ZEROCLAW/                  │   config.toml, zeroclaw.json
 ```
 
 ---
 
-## Platform Coverage
+## 📊 FILE TYPE BREAKDOWN
 
-| Platform | Type | Format | Location | Count |
-|---|---|---|---|---|
-| **Claude Code** | AI coding assistant | `.md` agents | `agents/claude-code/` | 129 |
-| **AntiGravity** | Gemini skill system | `SKILL.md` per folder | `agents/antigravity/` | 74 |
-| **Cursor** | AI code editor | `.mdc` rules | `agents/cursor/` | 68 |
-| **OpenCode** | AI coding platform | `.md` agents | `agents/opencode/` | 68 |
-| **NanoBot** | WhatsApp AI bot | `skill.json` + `SKILL.md` | `skills/nanobot/` | 69 |
-| **NanoClaw** | Multi-channel AI bot | `manifest.yaml` + `SKILL.md` | `skills/nanoclaw/` | 89 |
-| **OpenClaw** | AI agent platform | `.md` + Pi prompts | `agents/openclaw/` + `prompts/openclaw-pi/` | 58 + 72 |
-| **ZeroClaw** | Rust agent runtime | Gemini `.md` style | `prompts/zeroclaw-gemini/` | 69 |
-| **PicoClaw** | Go agent runtime | Copilot instructions | `agents/picoclaw/` | 1 |
-| **GitHub Copilot** | AI pair programmer | `copilot-instructions.md` | `agents/picoclaw/` | 68 embedded |
-| **Everything-CC** | Claude Code toolkit | `.md` agents + skills | `agents/everything-cc/` | 13 + 99 |
+| Extension | Count | Approx Size | Category | Used By |
+|-----------|:-----:|:-----------:|----------|---------|
+| `.md` | **2,186** | ~8 MB | Agent defs, skills, docs, prompts | All platforms |
+| `.json` | **168** | ~3 MB | Configs, manifests, skill.json | NanoBot, NanoClaw, Plugins |
+| `.ts` | **122** | ~1.5 MB | TypeScript skill implementations | NanoClaw, Everything-CC |
+| `.yaml` | **80** | ~400 KB | Manifests, NanoClaw configs | NanoClaw, OpenClaw |
+| `.mdc` | **68** | ~1.5 MB | Cursor rule files | Cursor |
+| `.pbtxt` | **19** | ~200 KB | AntiGravity rule/workflow data | AntiGravity |
+| `.py` | **16** | ~200 KB | Python skill scripts | NanoClaw |
+| `.txt` | **14** | ~100 KB | Text prompts, notes | Various |
+| `.mjs` | **13** | ~150 KB | JavaScript modules | Everything-CC |
+| `.sh` | **11** | ~50 KB | Shell scripts, installers | Various |
+| `.toml` | **1** | ~2 KB | ZeroClaw config | ZeroClaw |
+| `Dockerfile` | **2** | ~3 KB | Container skill definitions | NanoClaw |
+
+> **Markdown dominates (80%)** — all platforms converge on `.md` as the universal agent definition format.
+
+> **Excluded from this repo:** 600+ MB of runtime data (.pb conversation files, sessions.json, brain state, code tracking) — only agent *definitions* are committed.
 
 ---
 
-## Agents — 784 Definitions
+## 🤖 AGENTS
 
-Agent definitions organized by platform. Each agent has a personality, mission, workflows, and deliverables.
+### Claude Code — 129 Agents
 
-### `agents/claude-code/` — 129 agents
-
-Your full Claude Code agent roster including original agents plus The Agency's 68 specialists:
+Global agents at `~/.claude/agents/` covering the full development lifecycle:
 
 <details>
-<summary>View all 129 agent categories</summary>
+<summary><strong>View all Claude Code agent categories</strong></summary>
 
-| Category | Examples |
-|---|---|
-| **Engineering** | `ai-engineer` · `backend-architect` · `frontend-developer` · `devops-automator` · `security-engineer` · `senior-developer` · `data-engineer` · `mobile-app-builder` |
-| **Design** | `ui-designer` · `ux-researcher` · `ux-architect` · `brand-guardian` · `visual-storyteller` · `image-prompt-engineer` · `whimsy-injector` · `inclusive-visuals-specialist` |
-| **Marketing** | `growth-hacker` · `tiktok-strategist` · `twitter-engager` · `instagram-curator` · `reddit-community-builder` · `content-creator` · `social-media-strategist` · `wechat-official-account` · `xiaohongshu-specialist` · `zhihu-strategist` |
-| **Product** | `sprint-prioritizer` · `trend-researcher` · `feedback-synthesizer` · `behavioral-nudge-engine` |
-| **Project Mgmt** | `studio-producer` · `studio-coach` · `experiment-tracker` · `project-shepherd` · `studio-operations` |
-| **Testing** | `api-tester` · `performance-benchmarker` · `accessibility-auditor` · `tool-evaluator` · `reality-checker` · `evidence-collector` · `test-results-analyzer` · `workflow-optimizer` |
-| **Support** | `support-responder` · `finance-tracker` · `infrastructure-maintainer` · `legal-compliance-checker` · `analytics-reporter` · `executive-summary-generator` |
-| **Spatial** | `visionos-spatial-engineer` · `macos-spatial-metal-engineer` · `xr-interface-architect` · `xr-immersive-developer` · `xr-cockpit-interaction-specialist` · `terminal-integration-specialist` |
-| **Specialized** | `agents-orchestrator` · `lsp-index-engineer` · `cultural-intelligence-strategist` · `developer-advocate` · `data-consolidation-agent` · `sales-data-extraction-agent` · `report-distribution-agent` |
-| **Custom** | `analysis-agent` · `architecture-agent` · `ci-agent` · `codegen-agent` · `joker` · `rapid-prototyper` · `repo-scanner` · `project-shipper` |
+| Category | Agents |
+|----------|--------|
+| **Engineering** | backend-architect, frontend-developer, mobile-app-builder, devops-automator, rapid-prototyper, ai-engineer, security-engineer, data-engineer, senior-developer, technical-writer, autonomous-optimization-architect |
+| **Design** | ui-designer, ux-architect, brand-guardian, visual-storyteller, image-prompt-engineer, inclusive-visuals-specialist, whimsy-injector |
+| **Marketing** | content-creator, tiktok-strategist, trend-researcher, app-store-optimizer, community-manager, analytics-reporter, campaign-manager, growth-hacker |
+| **Product** | product-writer, sprint-prioritizer, feedback-synthesizer, studio-producer, experiment-tracker, project-shipper |
+| **Testing** | test-writer-fixer, api-tester, qa-specialist, test-results-analyzer |
+| **Support** | customer-support, onboarding-guide, documentation-specialist, knowledge-base-curator, feedback-analyst |
+| **Specialized** | joker, nexus-strategy, tool-evaluator, zhihu-strategist, and 40+ more |
+| **System (Agency)** | planner, architect, tdd-guide, code-reviewer, security-reviewer, build-error-resolver, e2e-runner, refactor-cleaner, doc-updater |
 
 </details>
 
-### `agents/antigravity/` — 74 skill folders
+### AntiGravity (Gemini CLI) — 82 Skills
 
-Google AntiGravity skills for Gemini CLI. Each folder contains a `SKILL.md`.
+Installed at `~/.gemini/antigravity/skills/`. Each skill is a named folder with `SKILL.md`:
 
 ```
-~/.gemini/antigravity/skills/agency-ai-engineer/SKILL.md
-~/.gemini/antigravity/skills/agency-backend-architect/SKILL.md
-... (74 total)
+AGENCY-BACKEND-ARCHITECT/
+└── SKILL.md    # name, description, risk_level, source frontmatter
 ```
 
-### `agents/cursor/` — 68 `.mdc` rules
+Includes all 68 Agency agents + 14 additional GWS recipe skills.
 
-Cursor IDE global rules at `~/.cursor/rules/`. Auto-apply to matching file globs.
+### Agency Source — 68 Canonical Agents
 
-### `agents/opencode/` — 68 agents
+Original [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) definitions in `AGENTS/AGENCY-SOURCE/`:
 
-Global OpenCode agents at `~/.config/opencode/agent/`. Reference with `@agent <name>` in chat.
+| Division | Count | Sample Agents |
+|----------|:-----:|---------------|
+| Engineering | 11 | backend-architect, frontend-developer, devops-automator, ai-engineer |
+| Design | 7 | ui-designer, ux-architect, brand-guardian, whimsy-injector |
+| Marketing | 8 | content-creator, tiktok-strategist, trend-researcher, app-store-optimizer |
+| Product | 6 | product-writer, sprint-prioritizer, feedback-synthesizer, studio-producer |
+| Project Mgmt | 5 | studio-coach, experiment-tracker, project-shipper |
+| Testing | 6 | test-writer-fixer, api-tester, qa-specialist, e2e-runner |
+| Support | 5 | customer-support, documentation-specialist, knowledge-base-curator |
+| Spatial Computing | 5 | xr-developer, ar-experience-designer, vr-environment-builder |
+| Specialized | 14 | joker, nexus-strategy, tool-evaluator, zhihu-strategist + more |
 
-### `agents/nanobot/` — 69 skills
+### OpenClaw Multi-Agent Teams — 22 Configs
 
-NanoBot WhatsApp agent skills. Each with `skill.json` metadata + `SKILL.md`.
+`AGENTS/OPENCLAW/` — Production multi-agent team configs:
 
-### `agents/agency-source/` — 68+ source files
-
-The original [agency-agents](https://github.com/msitarzewski/agency-agents) source organized by division:
-
-| Division | Agents |
-|---|---|
-| `engineering/` | ai-engineer · backend-architect · frontend-developer · devops-automator · security-engineer · senior-developer · data-engineer · mobile-app-builder · rapid-prototyper · technical-writer |
-| `design/` | ui-designer · ux-architect · ux-researcher · brand-guardian · visual-storyteller · image-prompt-engineer · inclusive-visuals-specialist · whimsy-injector |
-| `marketing/` | growth-hacker · content-creator · tiktok-strategist · twitter-engager · instagram-curator · reddit-community-builder · app-store-optimizer · social-media-strategist · wechat-official-account-manager · xiaohongshu-specialist · zhihu-strategist |
-| `product/` | sprint-prioritizer · trend-researcher · feedback-synthesizer · behavioral-nudge-engine |
-| `project-management/` | studio-producer · studio-operations · experiment-tracker · project-shepherd · senior-project-manager |
-| `testing/` | api-tester · performance-benchmarker · accessibility-auditor · tool-evaluator · reality-checker · evidence-collector · test-results-analyzer · workflow-optimizer |
-| `support/` | support-responder · finance-tracker · infrastructure-maintainer · legal-compliance-checker · analytics-reporter · executive-summary-generator |
-| `spatial-computing/` | visionos-spatial-engineer · macos-spatial-metal-engineer · xr-interface-architect · xr-immersive-developer · xr-cockpit-interaction-specialist · terminal-integration-specialist |
-| `specialized/` | agents-orchestrator · lsp-index-engineer · cultural-intelligence-strategist · developer-advocate · data-consolidation-agent · sales-data-extraction-agent · report-distribution-agent |
+| Team | Agents | Purpose |
+|------|:------:|---------|
+| **feature-dev** | 6 | planner → developer → reviewer → tester → verifier → setup |
+| **bug-fix** | 6 | triager → investigator → fixer → pr → setup → verifier |
+| **security-audit** | 7 | scanner → prioritizer → fixer → tester → verifier → pr → setup |
+| **acp / codex / main** | 3 | Orchestration & coordination |
 
 ---
 
-## Skills — 748 Installable Capabilities
+## ⚡ SKILLS
 
-Skills are modular, installable capabilities that extend AI agents with specific functionality.
+### Claude Code Skills — 499 Files
 
-### `skills/claude-code/` — 499 skills
+`SKILLS/CLAUDE-CODE/` — The most comprehensive Claude Code skill library:
 
-Extracted from `~/.claude/skills/`. Includes `SKILL.md` and `manifest.yaml` files for every skill in the Claude Code ecosystem.
+<details>
+<summary><strong>Skill categories (click to expand)</strong></summary>
 
-### `skills/nanoclaw/` — 89 skills
+| Category | Count | Description |
+|----------|:-----:|-------------|
+| **GWS Skills** | 80+ | Gmail, Drive, Calendar, Sheets, Docs, Slides, Meet, Chat, Classroom, Forms |
+| **Persona Skills** | 10 | exec-assistant, researcher, project-manager, customer-support, sales-ops |
+| **Recipe Skills** | 50+ | batch-invite, backup-sheet, compare-tabs, draft-from-doc, find-free-time |
+| **Agency Skills** | 68 | All 68 Agency agents as installable skills |
+| **Code Skills** | 20+ | TDD, review, security, refactor, build-error-resolver, e2e |
+| **Everything-CC** | 48 | Battle-tested skills from Everything-Claude-Code |
 
-NanoClaw `.claude/skills/` including all Agency agents adapted to `manifest.yaml` format plus 20 original NanoClaw skills:
+</details>
 
-| Original NanoClaw Skills | Purpose |
-|---|---|
-| `add-whatsapp` | WhatsApp channel integration |
-| `add-telegram` | Telegram channel integration |
-| `add-discord` | Discord channel integration |
-| `add-slack` | Slack channel integration |
-| `add-gmail` | Gmail channel integration |
-| `add-image-vision` | Multimodal image support |
-| `add-voice-transcription` | Voice message transcription |
-| `add-pdf-reader` | PDF reading in container |
-| `add-ollama-tool` | Local LLM (Ollama) integration |
-| `use-local-whisper` | On-device audio transcription |
-| `convert-to-apple-container` | Apple Container migration |
-| `x-integration` | X/Twitter automation |
-| `add-telegram-swarm` | Multi-agent Telegram swarm |
-| `add-parallel` | Parallel agent execution |
-| `debug` · `customize` · `setup` | Core utility skills |
-| `qodo-pr-resolver` · `get-qodo-rules` | PR automation |
-| `update-nanoclaw` | Self-update |
+### NanoClaw Skills — 262 Files (89 Skill Folders)
 
-### `skills/nanobot/` — 69 skills
+`SKILLS/NANOCLAW/` — Docker-based containerized skills:
 
-NanoBot WhatsApp skill folders. Each contains `skill.json` + `SKILL.md`.
+```
+SKILL-NAME/
+├── SKILL.md          # Description + manifest
+├── manifest.yaml     # NanoClaw manifest
+└── MODIFY/
+    ├── Dockerfile    # Container definition
+    └── SRC/          # Implementation
+```
 
-### `skills/everything-cc/` — 99 skills
+Notable skills: `ADD-PDF-READER`, `USE-LOCAL-WHISPER`, `CONVERT-TO-APPLE-CONTAINER`, `SHERPA-ONNX-TTS`, `ADK-TOOL-SCAFFOLD` + 84 more.
 
-Everything-Claude-Code toolkit skills + OpenCode-format skills.
+### NanoBot Skills — 69 Folders
 
-### `skills/openclaw/` — 101 files
+`SKILLS/NANOBOT/` — Each folder: `skill.json` + `SKILL.md`:
 
-OpenClaw platform skills (global `~/.openclaw/skills/` + project-level).
+```json
+{
+  "name": "agency-backend-architect",
+  "description": "Expert backend systems designer",
+  "trigger": "design API|architect backend|scale service",
+  "model": "claude-sonnet-4-5"
+}
+```
+
+### Everything-CC Skills — 99 Files
+
+`SKILLS/EVERYTHING-CC/` — From [disler/everything-claude-code](https://github.com/disler/everything-claude-code):
+
+- TDD workflow, code review, security scan, python/go/java review
+- Django, SpringBoot, FastAPI, PostgreSQL patterns
+- Deployment, Docker, E2E testing, ClickHouse patterns
+- Content-hash-cache, eval-harness, iterative-retrieval
 
 ---
 
-## Prompts — 141 files
+## 💬 PROMPTS
 
-### `prompts/openclaw-pi/` — 72 prompts
+### OpenClaw Pi Prompts — 72 Files
 
-OpenClaw Pi assistant prompts. Pi uses the `description:` frontmatter to auto-select the right agent:
+`PROMPTS/OPENCLAW-PI/` — Frontmatter-based prompts for the Pi intelligence system:
 
 ```markdown
 ---
-description: Expert AI/ML engineer specializing in machine learning...
+name: backend-architect
+description: Design scalable backend systems
+category: engineering
 ---
-# AI Engineer Agent
-...
+[prompt body]
 ```
 
-Key Pi prompts: `reviewpr.md` · `landpr.md` · `cl.md` · `is.md` + all 68 Agency agents
+### ZeroClaw Gemini Prompts — 69 Files
 
-### `prompts/zeroclaw-gemini/` — 69 files
+`PROMPTS/ZEROCLAW-GEMINI/` — Gemini Code Assist compatible agent files:
 
-Gemini Code Assist agent files for ZeroClaw (Rust project). Loaded automatically by Gemini on PRs:
+```markdown
+# Backend Architect
+> Design scalable APIs and distributed systems
 
-- `style-guide.md` — ZeroClaw Rust style guide
-- `agents/` — all 68 Agency agents as Gemini context
-
----
-
-## Plugins & Extensions — 560 files
-
-### `plugins/claude-code/` — 500 files
-
-Claude Code plugin manifests and documentation. Covers the full plugin marketplace including MCP server definitions, `plugin.json` metadata, and `SKILL.md` files.
-
-### `plugins/openclaw/` — 60 files
-
-OpenClaw extension manifests:
-- `pi-extensions/` — 4 Pi UI extensions (`redraws.ts` · `diff.ts` · `prompt-url-widget.ts` · `files.ts`)
-- Extension manifests for: msteams · matrix · zalo · zalouser · voice-call + more
-
----
-
-## Workflows — 9 files
-
-### `workflows/claude-plans/` — 8 plans
-
-Claude Code implementation plans (`.md`). Multi-phase design and feature planning documents.
-
-### `workflows/openclaw/` — 1 workflow
-
-`update_clawdbot.md` — Full upstream sync protocol for OpenClaw forks: rebase strategy, Swift 6.2 fixes, macOS app rebuild, verification.
-
----
-
-## MCP Configs — 4 files
-
-Model Context Protocol server configurations:
-
-| File | Platform | Servers Defined |
-|---|---|---|
-| `mcp/claude-code/mcp.json` | Claude Code global | All configured MCP servers |
-| `mcp/nanoclaw/mcp.json` | NanoClaw project | NanoClaw-specific MCP |
-| `mcp/cursor/mcp.json` | Cursor global | Cursor MCP servers |
-| `mcp/openclaw/.mcp.json` | OpenClaw project | OpenClaw MCP |
-
----
-
-## Hooks — 8 files
-
-Pre/post execution hooks:
-
-- `hooks/openclaw/` — OpenClaw hook scripts
-- `hooks/claude-code/` — Claude Code session hooks (PostToolUse, PreToolUse, Stop events)
-
----
-
-## Rules — 19 files
-
-### `rules/claude-code/` — 19 rules
-
-Global Claude Code rules loaded every session. Covers:
-- `common/agents.md` — Agent orchestration protocol
-- `common/coding-style.md` — Immutability, file organization, error handling
-- `common/git-workflow.md` — Commit format, PR workflow, TDD approach
-- `common/hooks.md` — Hook system patterns
-- `common/patterns.md` — Repository pattern, API response format
-- `common/performance.md` — Model selection strategy, context management
-- `common/security.md` — Security checklist, secret management
-- `common/testing.md` — Test coverage requirements, TDD workflow
-- `python/` — Python-specific rules
-- `typescript/` — TypeScript-specific rules
-
----
-
-## Configs — 7 files
-
-Platform configuration files:
-
-| File | Platform | Size |
-|---|---|---|
-| `configs/openclaw/openclaw.json` | OpenClaw | 44 KB |
-| `configs/nanobot/config.json` | NanoBot | — |
-| `configs/cursor/mcp.json` | Cursor | — |
-| `configs/cursor/cli-config.json` | Cursor | — |
-| `configs/picoclaw/config.json` | PicoClaw | 12.5 KB |
-| `configs/zeroclaw/config.toml` | ZeroClaw | 10.8 KB |
-| `configs/claude-code/GEMINI.md` | Gemini global | — |
-
----
-
-## Docs & Agent Protocols — 218 files
-
-### AGENTS.md files
-
-Agent engineering protocols from each project:
-
-| Project | Protocol Focus |
-|---|---|
-| `docs/zeroclaw/AGENTS.md` | Rust-first agent runtime, trait-driven architecture, KISS principles |
-| `docs/openclaw/AGENTS.md` | OpenClaw project guidelines, module organization, security trust model |
-| `docs/openclaw/CLAUDE.md` | Coding style, release channels, testing guidelines |
-
-### Project Docs
-
-- `docs/nanoclaw/` — NanoClaw architecture and integration docs (8 files)
-- `docs/picoclaw/` — PicoClaw Go project documentation (19 files)
-- `docs/` root — SKILL.md files scanned from all Open-Universe projects (218 total)
-
----
-
-## Directory Structure
-
-```
-Agents_Collection/                    ← 373 MB total
-│
-├── README.md                         ← This file
-├── INDEX.md                          ← Master quick-reference index
-│
-├── agents/                           ← 1,391 files (355 MB)
-│   ├── agency-source/                ← 68-agent source library (by division)
-│   │   ├── design/                   ← 8 agents
-│   │   ├── engineering/              ← 10 agents
-│   │   ├── marketing/                ← 11 agents
-│   │   ├── product/                  ← 4 agents
-│   │   ├── project-management/       ← 5 agents
-│   │   ├── spatial-computing/        ← 6 agents
-│   │   ├── specialized/              ← 7 agents
-│   │   ├── strategy/                 ← agents
-│   │   ├── support/                  ← 6 agents
-│   │   ├── testing/                  ← 8 agents
-│   │   └── integrations/             ← Claude/Cursor/OpenCode/Cursor/Windsurf/Aider formats
-│   ├── antigravity/                  ← 74 AntiGravity SKILL.md folders
-│   ├── claude-code/                  ← 129 Claude Code .md agents
-│   ├── cursor/                       ← 68 Cursor .mdc rules
-│   ├── everything-cc/                ← 13 Everything-CC agents
-│   ├── nanobot/                      ← 69 NanoBot skill folders
-│   ├── nanoclaw/                     ← 41 NanoClaw internal files
-│   ├── openclaw/                     ← 58 OpenClaw agent .md + .json
-│   ├── opencode/                     ← 68 OpenCode .md agents
-│   ├── picoclaw/                     ← copilot-instructions.md (68 embedded)
-│   └── zeroclaw/                     ← 68 Gemini Code Assist .md agents
-│
-├── skills/                           ← 1,117 files (9.4 MB)
-│   ├── claude-code/                  ← 499 skill manifests from ~/.claude/skills/
-│   ├── everything-cc/                ← 99 Everything-CC + OpenCode skills
-│   ├── github/                       ← GitHub Copilot skills
-│   ├── nanobot/                      ← 69 NanoBot skill folders
-│   ├── nanoclaw/                     ← 89 NanoClaw skills (manifest.yaml + SKILL.md)
-│   └── openclaw/                     ← 101 OpenClaw platform skills
-│       ├── src/                      ← ~/.openclaw/skills/
-│       └── project/                  ← openclaw/skills/ project-level
-│
-├── prompts/                          ← 141 files (1.6 MB)
-│   ├── openclaw-pi/                  ← 72 Pi assistant prompts
-│   ├── openclaw-workflows/           ← 1 workflow
-│   └── zeroclaw-gemini/              ← 69 Gemini Code Assist files
-│
-├── plugins/                          ← 560 files (4.2 MB)
-│   ├── claude-code/                  ← 500 plugin manifests
-│   └── openclaw/                     ← 60 extension manifests + Pi extensions
-│
-├── workflows/                        ← 9 files (200 KB)
-│   ├── claude-plans/                 ← 8 implementation plans
-│   └── openclaw/                     ← 1 upstream sync workflow
-│
-├── mcp/                              ← 4 files (20 KB)
-│   ├── claude-code/
-│   ├── cursor/
-│   ├── nanoclaw/
-│   └── openclaw/
-│
-├── hooks/                            ← 8 files (60 KB)
-│   ├── claude-code/
-│   └── openclaw/
-│
-├── rules/                            ← 19 files (80 KB)
-│   ├── claude-code/                  ← 19 session rules
-│   └── cursor/                       ← (same as agents/cursor/)
-│
-├── docs/                             ← 218 files (2.1 MB)
-│   ├── nanoclaw/
-│   ├── openclaw/
-│   ├── picoclaw/
-│   └── zeroclaw/
-│
-├── configs/                          ← 7 files (100 KB)
-│   ├── claude-code/
-│   ├── cursor/
-│   ├── nanobot/
-│   ├── openclaw/
-│   ├── picoclaw/
-│   └── zeroclaw/
-│
-├── commands/                         ← (empty — none found on system)
-├── schemas/                          ← (empty — none found on system)
-├── data/                             ← (empty — none found on system)
-└── assets/                           ← (empty — none found on system)
+[full agent prompt]
 ```
 
 ---
 
-## Source Locations Scanned
+## 🔌 PLUGINS · MCP · HOOKS · CONFIGS
 
-| # | Source Path | What Was Collected |
-|---|---|---|
-| 1 | `~/.claude/agents/` | 129 Claude Code agents |
-| 2 | `~/.claude/skills/` | 499 skill manifests |
-| 3 | `~/.claude/rules/` | 19 session rules |
-| 4 | `~/.claude/plugins/` | 500 plugin manifests |
-| 5 | `~/.claude/plans/` | 8 implementation plans |
-| 6 | `~/.gemini/antigravity/` | 74 AntiGravity skill folders |
-| 7 | `~/.cursor/rules/` | 68 Cursor .mdc rules |
-| 8 | `~/.config/opencode/agent/` | 68 OpenCode agents |
-| 9 | `~/.openclaw/` | 58 agents · 27 skills · hooks · extensions · config |
-| 10 | `~/.nanobot/skills/` | 69 NanoBot skill folders |
-| 11 | `Open-Universe/NanoClaw/` | 89 skills · 41 internal · docs · MCP |
-| 12 | `Open-Universe/openclaw/` | 72 prompts · 74 skills · 4 Pi extensions · AGENTS.md |
-| 13 | `Open-Universe/picoclaw/` | copilot-instructions · 19 docs |
-| 14 | `Open-Universe/zeroclaw/` | 69 Gemini agents · AGENTS.md |
-| 15 | `everything-claude-code/` | 13 agents · 99 skills |
+### Claude Code Plugins — 500 Files
 
-**+ Agency source** (`/tmp/agency-agents/`) — 68-agent library with integrations for 6 platforms
+`PLUGINS/CLAUDE-CODE/` — Full plugin manifests + multilingual documentation.
+Includes `EVERYTHING-CLAUDE-CODE` plugin cache with 30+ skills in English, Chinese (zh-cn), and Japanese (ja-jp).
+
+### MCP Server Configs *(secrets redacted)*
+
+`MCP/` — Model Context Protocol server configurations:
+
+| File | MCP Servers Configured |
+|------|----------------------|
+| `CLAUDE-CODE/mcp.json` | filesystem, github, figma, supabase, vercel, railway, cloudflare, firecrawl, memory, sequential-thinking, playwright, web-search, linear, gmail, canva, gamma, indeed, zread, context7 |
+| `CLAUDE-CODE/.mcp.json` | Project-level overrides |
+| `CURSOR/mcp.json` | Cursor MCP (same 20+ servers) |
+| `NANOCLAW/.mcp.json` | NanoClaw project MCP |
+
+> ⚠️ All API tokens, PATs, and secrets replaced with `***REDACTED***` before commit.
+
+### Hooks — 8 Files
+
+`HOOKS/` — Pre/post execution lifecycle hooks:
+- Session-start hooks (context loading, memory init)
+- Tool-use hooks (validation, auto-format)
+- Stop hooks (final verification, cleanup)
+
+### Configs *(secrets redacted)*
+
+`CONFIGS/` — Platform configuration files:
+
+| File | Platform | Notes |
+|------|----------|-------|
+| `CLAUDE-CODE/GEMINI.md` | Gemini integration | Gemini model config |
+| `OPENCLAW/openclaw.json` | OpenClaw platform | Agent team definitions |
+| `NANOBOT/config.json` | NanoBot | 20+ LLM provider configs |
+| `CURSOR/mcp.json` | Cursor | MCP + tool config |
+| `ZEROCLAW/config.toml` | ZeroClaw | Gemini CLI config |
+| `PICOCLAW/config.json` | PicoClaw | Copilot config |
 
 ---
 
-## Find Anything Fast
+## 🌟 THE 68 CORE AGENCY AGENTS
 
+All 68 agents from [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) installed across **5 tools** simultaneously in their native formats:
+
+| Agent | Claude Code | Cursor | OpenCode | AntiGravity | Copilot |
+|-------|:-----------:|:------:|:--------:|:-----------:|:-------:|
+| backend-architect | ✅ `.md` | ✅ `.mdc` | ✅ `.md` | ✅ `SKILL.md` | ✅ concat |
+| frontend-developer | ✅ | ✅ | ✅ | ✅ | ✅ |
+| mobile-app-builder | ✅ | ✅ | ✅ | ✅ | ✅ |
+| devops-automator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| rapid-prototyper | ✅ | ✅ | ✅ | ✅ | ✅ |
+| ai-engineer | ✅ | ✅ | ✅ | ✅ | ✅ |
+| security-engineer | ✅ | ✅ | ✅ | ✅ | ✅ |
+| ui-designer | ✅ | ✅ | ✅ | ✅ | ✅ |
+| ux-architect | ✅ | ✅ | ✅ | ✅ | ✅ |
+| content-creator | ✅ | ✅ | ✅ | ✅ | ✅ |
+| tiktok-strategist | ✅ | ✅ | ✅ | ✅ | ✅ |
+| product-writer | ✅ | ✅ | ✅ | ✅ | ✅ |
+| ... (56 more) | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+**Also installed in NanoBot, NanoClaw, OpenClaw, PicoClaw, ZeroClaw** — 10 platforms total.
+
+Each format differs:
+
+| Platform | File Format | Key Fields |
+|----------|-------------|-----------|
+| Claude Code | `.md` + YAML frontmatter | `name`, `description`, `model`, `tools` |
+| Cursor | `.mdc` | `description`, `globs`, `alwaysApply` |
+| OpenCode | `.md` + frontmatter | `name`, `description`, `color` |
+| AntiGravity | folder/`SKILL.md` | `name`, `description`, `risk_level`, `source` |
+| GitHub Copilot | concat in single `.md` | plain markdown sections |
+| NanoBot | `skill.json` + `SKILL.md` | `name`, `description`, `trigger`, `model` |
+| NanoClaw | `manifest.yaml` + `SKILL.md` | `name`, `version`, `description` |
+| OpenClaw Pi | frontmatter `.md` | `name`, `description`, `category` |
+| ZeroClaw | plain `.md` | `# Title` + `> description` |
+
+---
+
+## 🚀 HOW TO USE
+
+### Install — Claude Code Agents
 ```bash
-# By platform
-ls agents/claude-code/                     # Claude Code
-ls agents/antigravity/                     # AntiGravity / Gemini
-ls agents/cursor/                          # Cursor
-ls agents/opencode/                        # OpenCode
-ls agents/nanobot/                         # NanoBot
-ls skills/nanoclaw/                        # NanoClaw
+cp AGENTS/CLAUDE-CODE/*.md ~/.claude/agents/
+ls ~/.claude/agents/ | wc -l   # verify
+```
 
-# By type
-ls workflows/                              # Workflows
-ls prompts/openclaw-pi/                    # Pi prompts
-ls prompts/zeroclaw-gemini/                # Gemini agents
-ls mcp/                                    # MCP configs
-ls hooks/                                  # Hooks
-ls rules/claude-code/                      # Session rules
-ls plugins/claude-code/                    # Plugin manifests
+### Install — AntiGravity Skills
+```bash
+cp -r AGENTS/ANTIGRAVITY/SKILLS/* ~/.gemini/antigravity/skills/
+```
 
-# Search by keyword
-grep -r "security" agents/ -l             # All security agents
-grep -r "marketing" agents/ -l            # All marketing agents
-grep -r "react" skills/ -l               # Skills mentioning React
-grep -r "database" skills/ -l            # Database-related skills
+### Install — Cursor Rules
+```bash
+cp AGENTS/CURSOR/*.mdc ~/.cursor/rules/
+```
 
-# Find by agent name
-find agents/ -name "*backend*"
-find agents/ -name "*orchestrat*"
-find skills/ -name "*whisper*"
+### Install — OpenCode Agents
+```bash
+cp AGENTS/OPENCODE/*.md ~/.config/opencode/agent/
+```
 
-# Count
-find agents/ -name "*.md" | wc -l        # Total agent files
-find skills/ -name "SKILL.md" | wc -l    # Total installable skills
+### Install — NanoBot Skills
+```bash
+cp -r SKILLS/NANOBOT/* ~/.nanobot/skills/
+```
+
+### Install — NanoClaw Skills
+```bash
+# Per-project install
+cp -r SKILLS/NANOCLAW/ADD-PDF-READER /path/to/project/.claude/skills/
+```
+
+### Browse & Search
+```bash
+# Find agents by topic
+grep -rl "security" AGENTS/ --include="*.md" | head -20
+
+# Find skills with specific capability
+grep -rl "TypeScript" SKILLS/ --include="*.md" | head -10
+
+# List all agents by platform
+ls AGENTS/CLAUDE-CODE/
+ls AGENTS/OPENCODE/
+ls AGENTS/CURSOR/
+
+# Find duplicate agent definitions across platforms
+grep -rh "^name:" AGENTS/ --include="*.md" | sort | uniq -d
 ```
 
 ---
 
-## The 68 Core Agency Agents
+## 🔗 REFERENCES & SOURCE REPOS
 
-These 68 agents are installed in every platform (Claude Code, Cursor, OpenCode, NanoBot, NanoClaw, OpenClaw Pi, ZeroClaw Gemini, GitHub Copilot):
+### Source Projects
 
-| Division | Agents |
-|---|---|
-| **Engineering (10)** | ai-engineer · backend-architect · frontend-developer · devops-automator · security-engineer · senior-developer · data-engineer · mobile-app-builder · rapid-prototyper · technical-writer |
-| **Design (8)** | ui-designer · ux-architect · ux-researcher · brand-guardian · visual-storyteller · image-prompt-engineer · inclusive-visuals-specialist · whimsy-injector |
-| **Marketing (11)** | growth-hacker · content-creator · tiktok-strategist · twitter-engager · instagram-curator · reddit-community-builder · app-store-optimizer · social-media-strategist · wechat-official-account-manager · xiaohongshu-specialist · zhihu-strategist |
-| **Product (4)** | sprint-prioritizer · trend-researcher · feedback-synthesizer · behavioral-nudge-engine |
-| **Project Mgmt (5)** | studio-producer · studio-operations · experiment-tracker · project-shepherd · senior-project-manager |
-| **Testing (8)** | api-tester · performance-benchmarker · accessibility-auditor · tool-evaluator · reality-checker · evidence-collector · test-results-analyzer · workflow-optimizer |
-| **Support (6)** | support-responder · finance-tracker · infrastructure-maintainer · legal-compliance-checker · analytics-reporter · executive-summary-generator |
-| **Spatial (6)** | visionos-spatial-engineer · macos-spatial-metal-engineer · xr-interface-architect · xr-immersive-developer · xr-cockpit-interaction-specialist · terminal-integration-specialist |
-| **Specialized (7)** | agents-orchestrator · lsp-index-engineer · cultural-intelligence-strategist · developer-advocate · data-consolidation-agent · sales-data-extraction-agent · report-distribution-agent |
-| **Strategy (3)** | agentic-identity-trust-architect · autonomous-optimization-architect · reality-checker |
+| Project | Author | Link | Contribution |
+|---------|--------|------|-------------|
+| **agency-agents** | msitarzewski | [github.com/msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) | 68 canonical agent definitions — the backbone |
+| **everything-claude-code** | disler | [github.com/disler/everything-claude-code](https://github.com/disler/everything-claude-code) | 48 skills, 13 agents, OpenCode configs |
+| **gemini-cli** | Google | [github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) | AntiGravity skill platform |
+| **NanoClaw** | mk-knight23 | [github.com/mk-knight23/NanoClaw](https://github.com/mk-knight23) | Containerized Claude skill platform |
+| **openclaw** | mk-knight23 | [github.com/mk-knight23/openclaw](https://github.com/mk-knight23) | Multi-agent team platform |
+| **zeroclaw** | mk-knight23 | [github.com/mk-knight23/zeroclaw](https://github.com/mk-knight23) | Gemini-based code agent |
+| **picoclaw** | mk-knight23 | [github.com/mk-knight23/picoclaw](https://github.com/mk-knight23) | Copilot-based Go code agent |
+
+### Platform Docs
+
+| Platform | Documentation |
+|----------|---------------|
+| Claude Code agents | [docs.anthropic.com/claude-code](https://docs.anthropic.com/claude/docs/claude-code) |
+| Gemini AntiGravity | [github.com/google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) |
+| Cursor rules | [docs.cursor.com/context/rules](https://docs.cursor.com/context/rules) |
+| OpenCode agents | [opencode.ai](https://opencode.ai) |
+| GitHub Copilot instructions | [docs.github.com/copilot/customizing-copilot](https://docs.github.com/en/copilot/customizing-copilot) |
+| MCP (Model Context Protocol) | [modelcontextprotocol.io](https://modelcontextprotocol.io) |
 
 ---
 
-## Credits
+## 🙏 CREDITS & CONTRIBUTIONS
 
-- **[The Agency](https://github.com/msitarzewski/agency-agents)** — 68 personality-driven specialist agents (MIT License)
-- **[Everything Claude Code](https://github.com/everything-claude-code/everything-claude-code)** — Agents, skills, and coding standards toolkit
-- **[NanoClaw](https://github.com/NanoClaw/nanoclaw)** — Multi-channel AI bot skills engine
-- **[OpenClaw](https://github.com/openclaw/openclaw)** — Open-source AI agent platform
-- **[ZeroClaw](https://github.com/zeroclaw/zeroclaw)** — Rust-first autonomous agent runtime
-- **Musharraf Kazi** — Collection, organization, cross-platform installation
+### Primary Creator
+
+**Musharraf Kazi** — [@mk-knight23](https://github.com/mk-knight23)
+> AI Organization Architect · 6+ years AI engineering · Building self-evolving digital organizations
+> Current projects: Open-Universe (60 apps), AI-VIBE Ecosystem, AI-SDK-Ecosystem, RALPH (134+ agents, 21 teams)
+
+### Agency Agents — Original Author
+
+**Mike Sitarzewski** — [@msitarzewski](https://github.com/msitarzewski)
+> Creator of [agency-agents](https://github.com/msitarzewski/agency-agents) — the 68-agent personality system and the `convert.sh` script that generates 6 platform formats from a single source. All 68 core agents originate from his work. ⭐ Star his repo.
+
+### Everything Claude Code — Original Author
+
+**Daniel Isler** — [@disler](https://github.com/disler)
+> Creator of [everything-claude-code](https://github.com/disler/everything-claude-code) — 48+ production-grade skills, coding standards, and agent configurations. ⭐ Star his repo.
+
+### Platform Teams
+
+| Team | Contribution |
+|------|-------------|
+| **Anthropic** | Claude Code agent system, MCP protocol specification |
+| **Google DeepMind** | Gemini CLI + AntiGravity skill platform |
+| **Cursor** | `.mdc` rule system for AI-native IDE |
+| **OpenCode Labs** | OpenCode agent format and global agent directory |
+| **GitHub** | Copilot custom instructions system |
+
+---
+
+## 📋 COLLECTION STATS
+
+| Metric | Value |
+|--------|-------|
+| **Total Size (definitions)** | ~30 MB |
+| **Total Size (with runtime, excluded)** | ~600 MB |
+| **Total Files (committed)** | 2,700+ |
+| **Total Directories** | 1,300+ |
+| **Platforms Covered** | 11 |
+| **Source Locations Scanned** | 15 |
+| **Markdown Files** | 2,186 |
+| **JSON Configs** | 168 |
+| **TypeScript Files** | 122 |
+| **YAML Manifests** | 80 |
+| **Cursor Rules (.mdc)** | 68 |
+| **Shell Scripts** | 11 |
+| **Removed (runtime)** | ~499 files — conversation/session history |
+| **Removed (duplicates)** | ~340 files — old lowercase paths + integration copies |
+| **Secrets Redacted** | 6 files (MCP configs, platform configs) |
+
+---
+
+## 📄 LICENSE
+
+**MIT** — All original work by [@mk-knight23](https://github.com/mk-knight23)
+
+Individual agent definitions retain their original licenses:
+- Agency agents — [MIT](https://github.com/msitarzewski/agency-agents/blob/main/LICENSE) · msitarzewski
+- Everything-CC skills — [MIT](https://github.com/disler/everything-claude-code) · disler
 
 ---
 
 <div align="center">
 
-**373 MB · 3,475 files · 11 platforms · One collection.**
+**Built with obsession. Deployed across 11 platforms. Runtime excluded. Definitions preserved.**
 
-*MIT License — Use freely, build boldly.*
+⭐ Star this repo · 🍴 Fork it · 📦 Use the agents
+
+[@mk-knight23](https://github.com/mk-knight23) · [AGENTS-COLLECTION](https://github.com/mk-knight23/AGENTS-COLLECTION)
 
 </div>

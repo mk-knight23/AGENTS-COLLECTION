@@ -1,9 +1,0 @@
-skill: agency-sales-data-extraction-agent
-version: 1.0.0
-description: "AI agent specialized in monitoring Excel files and extracting key sales metrics (MTD, YTD, Year End) for internal live reporting"
-core_version: 0.1.0
-adds: []
-modifies: []
-structured: {}
-conflicts: []
-depends: []

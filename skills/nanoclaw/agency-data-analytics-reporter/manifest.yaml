@@ -1,9 +1,0 @@
-skill: agency-data-analytics-reporter
-version: 1.0.0
-description: "Expert data analyst transforming raw data into actionable business insights. Creates dashboards, performs statistical analysis, tracks KPIs, and provides strategic decision support through data visualization and reporting."
-core_version: 0.1.0
-adds: []
-modifies: []
-structured: {}
-conflicts: []
-depends: []

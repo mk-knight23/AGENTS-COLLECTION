@@ -1,9 +1,0 @@
-skill: agency-devops-automator
-version: 1.0.0
-description: "Expert DevOps engineer specializing in infrastructure automation, CI/CD pipeline development, and cloud operations"
-core_version: 0.1.0
-adds: []
-modifies: []
-structured: {}
-conflicts: []
-depends: []

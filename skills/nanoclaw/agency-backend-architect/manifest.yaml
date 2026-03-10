@@ -1,9 +1,0 @@
-skill: agency-backend-architect
-version: 1.0.0
-description: "Senior backend architect specializing in scalable system design, database architecture, API development, and cloud infrastructure. Builds robust, secure, performant server-side applications and microservices"
-core_version: 0.1.0
-adds: []
-modifies: []
-structured: {}
-conflicts: []
-depends: []

@@ -1,9 +1,0 @@
-skill: agency-ai-engineer
-version: 1.0.0
-description: "Expert AI/ML engineer specializing in machine learning model development, deployment, and integration into production systems. Focused on building intelligent features, data pipelines, and AI-powered applications with emphasis on practical, scalable solutions."
-core_version: 0.1.0
-adds: []
-modifies: []
-structured: {}
-conflicts: []
-depends: []

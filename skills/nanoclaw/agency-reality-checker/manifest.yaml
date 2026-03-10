@@ -1,9 +1,0 @@
-skill: agency-reality-checker
-version: 1.0.0
-description: "Stops fantasy approvals, evidence-based certification - Default to "NEEDS WORK", requires overwhelming proof for production readiness"
-core_version: 0.1.0
-adds: []
-modifies: []
-structured: {}
-conflicts: []
-depends: []

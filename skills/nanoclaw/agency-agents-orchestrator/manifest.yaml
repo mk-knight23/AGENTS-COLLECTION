@@ -1,9 +1,0 @@
-skill: agency-agents-orchestrator
-version: 1.0.0
-description: "Autonomous pipeline manager that orchestrates the entire development workflow. You are the leader of this process."
-core_version: 0.1.0
-adds: []
-modifies: []
-structured: {}
-conflicts: []
-depends: []

@@ -1,40 +1,72 @@
-# Runtime & conversation data (lowercase and uppercase paths)
-agents/antigravity/conversations/
-agents/antigravity/brain/
-agents/antigravity/implicit/
-agents/antigravity/browser_recordings/
-agents/antigravity/html_artifacts/
-agents/antigravity/scratch/
-agents/antigravity/installation_id
-agents/antigravity/code_tracker/
-agents/openclaw/*/sessions/
+# ============================================================
+# AGENTS-COLLECTION — .gitignore
+# Excludes runtime data, secrets, system junk, and build artifacts
+# ============================================================
 
+# ── AntiGravity Runtime Data ─────────────────────────────────
 AGENTS/ANTIGRAVITY/CONVERSATIONS/
 AGENTS/ANTIGRAVITY/BRAIN/
 AGENTS/ANTIGRAVITY/IMPLICIT/
 AGENTS/ANTIGRAVITY/BROWSER_RECORDINGS/
 AGENTS/ANTIGRAVITY/HTML_ARTIFACTS/
 AGENTS/ANTIGRAVITY/SCRATCH/
-AGENTS/ANTIGRAVITY/INSTALLATION_ID
+AGENTS/ANTIGRAVITY/PLAYGROUND/
+AGENTS/ANTIGRAVITY/DAEMON/
+AGENTS/ANTIGRAVITY/CONTEXT_STATE/
+AGENTS/ANTIGRAVITY/KNOWLEDGE/
 AGENTS/ANTIGRAVITY/CODE_TRACKER/
-AGENTS/OPENCLAW/*/SESSIONS/
+AGENTS/ANTIGRAVITY/installation_id
 
-# System files
+# Lowercase variants (pre-uppercase-rename compatibility)
+agents/antigravity/conversations/
+agents/antigravity/brain/
+agents/antigravity/implicit/
+agents/antigravity/browser_recordings/
+agents/antigravity/html_artifacts/
+agents/antigravity/scratch/
+agents/antigravity/playground/
+agents/antigravity/daemon/
+agents/antigravity/context_state/
+agents/antigravity/knowledge/
+agents/antigravity/code_tracker/
+
+# ── OpenClaw Runtime Sessions ────────────────────────────────
+AGENTS/OPENCLAW/*/SESSIONS/
+agents/openclaw/*/sessions/
+
+# ── Protobuf / Binary Conversation Data ─────────────────────
+*.pb
+
+# ── macOS System Files ───────────────────────────────────────
 .DS_Store
 **/.DS_Store
-Thumbs.db
+.AppleDouble
+.LSOverride
+._*
 
-# Large binary files
-*.bin
-*.sqlite
-*.db
+# ── Lock / Cache Files ───────────────────────────────────────
 *.lock
+.cache/
+*-lock.json
+package-lock.json
 
-# Build artifacts
+# ── Build Artifacts ─────────────────────────────────────────
 node_modules/
 __pycache__/
 *.pyc
+*.pyo
 dist/
 build/
 target/
-.cache/
+.output/
+.next/
+
+# ── Secrets / Credentials ───────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.key
+credentials.json
+token.json

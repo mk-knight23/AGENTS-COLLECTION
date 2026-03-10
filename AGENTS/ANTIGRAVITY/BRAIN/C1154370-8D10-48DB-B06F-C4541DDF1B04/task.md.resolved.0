@@ -1,5 +1,0 @@
-# Workspace Gateways Task Checklist
-
-- [x] Discover available agents in the workspace
-- [/] Check for `gateway` commands in each agent
-- [ ] Run gateways for all identified agents

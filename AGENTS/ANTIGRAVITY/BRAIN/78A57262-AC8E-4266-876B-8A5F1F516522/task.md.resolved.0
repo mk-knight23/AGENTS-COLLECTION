@@ -1,6 +1,0 @@
-# Task: Determine Claude Code Model Configuration
-
-- [/] Check ~/.claude.json for model configuration
-- [ ] Run Claude CLI commands to fetch config
-- [ ] Check local project .claude configuration
-- [ ] Report the running model config to the user

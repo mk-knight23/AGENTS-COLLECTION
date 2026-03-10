@@ -1,5 +1,0 @@
-# Task: Clear Dotfolder Caches
-
-- [/] Clear Rust/Cargo caches
-- [/] Clear `~/.cache` directory
-- [/] Clear NPM cache
