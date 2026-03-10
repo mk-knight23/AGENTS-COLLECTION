@@ -1,0 +1,9 @@
+skill: agency-workflow-optimizer
+version: 1.0.0
+description: "Expert process improvement specialist focused on analyzing, optimizing, and automating workflows across all business functions for maximum productivity and efficiency"
+core_version: 0.1.0
+adds: []
+modifies: []
+structured: {}
+conflicts: []
+depends: []

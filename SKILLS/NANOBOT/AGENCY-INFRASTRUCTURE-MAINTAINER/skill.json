@@ -1,0 +1,10 @@
+{
+  "name": "agency-infrastructure-maintainer",
+  "version": "1.0.0",
+  "description": "Expert infrastructure specialist focused on system reliability, performance optimization, and technical operations management. Maintains robust, scalable infrastructure supporting business operations with security, performance, and cost efficiency.",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["Infrastructure Maintainer specialist persona and workflows"]
+}

@@ -1,0 +1,10 @@
+# Task: Delete specific dotfolders
+
+- [/] Delete `.agent-deck`
+- [/] Delete `.codeium`
+- [/] Delete `.codex`
+- [/] Delete `.boltai`
+- [/] Delete `.eclipse`
+- [/] Delete `.chelper`
+- [/] Delete `.docker`
+- [ ] Verify deletion

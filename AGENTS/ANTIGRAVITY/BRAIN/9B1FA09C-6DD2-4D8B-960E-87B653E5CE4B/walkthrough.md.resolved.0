@@ -1,0 +1,214 @@
+# Repo Evolution Pipeline — Project Walkthrough
+
+## What It Does
+
+This is a **multi-agent AI pipeline** that scans your GitHub repos (org: `mk-knight23`) and automatically generates **improved mobile app versions** on GitLab (`mk-knight23-mobile`). It reads source code, understands the app's purpose, designs a mobile architecture, generates production-ready code (Expo/React Native/Flutter/Ionic), attaches CI/CD, and pushes everything to GitLab — fully automated.
+
+---
+
+## Architecture Overview
+
+```mermaid
+flowchart TD
+    subgraph "Entry Points"
+        CLI["CLI\npython -m pipeline"]
+        API["FastAPI\nuvicorn api.main:app"]
+    end
+
+    subgraph "Orchestration"
+        ORCH["PipelineOrchestrator\n(async, batched, concurrent)"]
+        MON["PipelineMonitor\n(progress, timing, reports)"]
+    end
+
+    subgraph "6-Stage Agent Pipeline"
+        S1["1. Scanner\nClone & extract source files"]
+        S2["2. Analyzer\nLLM deep/shallow analysis"]
+        S3["3. Architect\nFramework & navigation design"]
+        S4["4. CodeGen\nGenerate full mobile app code"]
+        S5["5. Quality Gates\n15 automated checks"]
+        S6["6. Pusher\nCreate GitLab repo & push"]
+    end
+
+    CLI --> ORCH
+    API --> ORCH
+    ORCH --> S1 --> S2 --> S3 --> S4 --> S5 --> S6
+    ORCH --> MON
+```
+
+---
+
+## Two Parallel Systems
+
+The project has **two versions of the pipeline** that coexist:
+
+| | **V1 (LangGraph)** | **V2 (Orchestrator)** |
+|---|---|---|
+| **Location** | `graph/` + `agents/` | [pipeline/](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/api/main.py#47-54) |
+| **Execution** | LangGraph `StateGraph` | Async [PipelineOrchestrator](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/orchestrator.py#32-245) |
+| **Entry** | [api/main.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/api/main.py) (FastAPI) | [pipeline/__main__.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/__main__.py) (CLI) |
+| **State** | [PipelineState](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/graph/state.py#50-71) (TypedDict) | [RepoEvolutionState](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#160-200) (Pydantic) |
+| **Features** | Conditional routing, skip logic | Batching, concurrency, retries, monitoring, quality gates |
+
+**V2 ([pipeline/](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/api/main.py#47-54)) is the more complete and production-ready system.** V1 is the original LangGraph prototype.
+
+---
+
+## Data Flow (V2 Pipeline)
+
+### State Object: [RepoEvolutionState](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#L160-L200)
+
+Each repo flows through as a single [RepoEvolutionState](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#160-200) that accumulates data:
+
+```
+RepoEvolutionState
+├── repo_name, github_url           # Identity
+├── source_files: {path → content}  # Raw source from GitHub
+├── manifest: RepoManifest          # Metadata extraction
+├── deep_analysis: DeepAnalysis     # LLM component analysis
+├── design_brief: DesignBrief       # App purpose/UX summary
+├── architecture: MobileArchitecture # Framework + screens + nav
+├── generated_files: {path → code}  # Output mobile code
+├── generation_result: GenerationResult # Quality + GitLab URL
+└── stage, errors, retry_count      # Control flow
+```
+
+### Stage-by-Stage Breakdown
+
+**Stage 1 — Scanner** ([scanner.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/scanner.py))
+- Clones the GitHub repo to `/tmp/repo-evolution/source/`
+- Filters out `node_modules`, `.git`, [build](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/architect.py#161-179) etc.
+- Extracts source files (`.ts`, `.tsx`, `.js`, [.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/api/main.py), etc.) up to a 500K char budget
+- Falls back to GitHub REST API if clone fails
+
+**Stage 2 — Analyzer** ([analyzer.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/analyzer.py))
+- **Deep analysis** (when source files available): Sends condensed source to Claude Sonnet → gets component breakdown, pages, API calls, data models, state shape
+- **Shallow analysis** (metadata only): Uses Claude Haiku → gets [DesignBrief](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/graph/state.py#23-30) with purpose, features, UX flow
+- Includes fallback [_fallback_design_brief()](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/analyzer.py#209-246) if LLM fails entirely
+
+**Stage 3 — Architect** ([architect.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/architect.py))
+- Deterministic framework selection based on category:
+
+  | Category | Framework | Navigation | State Mgmt |
+  |---|---|---|---|
+  | Portfolio | Expo | Tab | Zustand |
+  | Webapp | React Native | Hybrid | Zustand |
+  | Game | Flutter | Stack | Riverpod |
+  | Tool | Expo | Drawer | Zustand |
+
+- Builds [ScreenSpec](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#117-126) list from deep analysis routes or infers from features
+- Designs navigation, dependencies, and design tokens
+
+**Stage 4 — CodeGen** ([codegen.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/codegen.py) — 959 lines, largest file)
+- Generates **complete app scaffolding**:
+  - Config files (`package.json`/`pubspec.yaml`, `tsconfig.json`, `app.json`)
+  - Navigation (Expo Router layouts, RN Navigator, Flutter go_router)
+  - Screens (LLM-generated from source when available, template fallback)
+  - Shared components (Loading, ErrorBoundary, Card, Header)
+  - State store (Zustand/Riverpod/Pinia)
+  - API service layer
+  - TypeScript types
+  - README + ARCHITECTURE.md
+- Uses Claude Sonnet for screen generation, templates for everything else
+
+**Stage 5 — Quality Gates** ([gates.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/quality/gates.py))
+
+15 automated checks, scoring 0–100:
+
+| # | Gate | Checks |
+|---|---|---|
+| 1 | Project structure | Required dirs/files exist |
+| 2 | Config validity | package.json/pubspec parseable |
+| 3 | Minimum screens | ≥ 3 screen files |
+| 4 | Navigation connects | All screens linked |
+| 5 | CI YAML | Valid `.gitlab-ci.yml` |
+| 6 | README | Exists, > 50 lines |
+| 7 | Architecture docs | ARCHITECTURE.md exists |
+| 8 | Ancestor link | GitHub source URL referenced |
+| 9 | No secrets | No hardcoded API keys |
+| 10 | TypeScript quality | Proper typing, no `any` abuse |
+| 11 | Accessibility | `accessibilityLabel` present |
+| 12 | Offline support | Caching patterns present |
+| 13 | Error handling | try/catch in components |
+| 14 | No placeholders | No TODO/Lorem ipsum |
+| 15 | Design tokens | Theme/colors file exists |
+
+**Stage 6 — Pusher** ([pusher.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/pusher.py))
+- Creates or finds GitLab project (name format: `{repo}-mobile-{framework}`)
+- Attaches CI/CD template ([ci_templates.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/ci_templates.py) — Expo/RN/Flutter/Ionic)
+- Batch commits files (150 per commit, GitLab API limit)
+- Configures project settings, topics, creates `develop` branch
+
+---
+
+## Configuration
+
+[config.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/config.py) — All settings centralized:
+
+- **LLM**: Claude Sonnet 4.5 (heavy/analysis) + Haiku 4.5 (light/scanning), temp 0.1–0.3
+- **Concurrency**: batch size 5, max concurrent 3, max retries 3
+- **Limits**: 80K char source limit, 8 screens max, 50K file size max
+- **Secrets**: All from env vars, never hardcoded
+
+---
+
+## LLM Layer
+
+[llm.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/llm.py) provides:
+- [create_llm()](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/llm.py#122-147) — Factory for `ChatAnthropic` instances
+- [invoke_with_retry()](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/llm.py#149-202) — Async with exponential backoff (5s, 15s, 30s)
+- [extract_json()](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/llm.py#83-118) — Robust JSON extraction (handles `<think>` blocks, code fences, regex fallback)
+- [CostTracker](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/llm.py#34-75) — Per-model, per-stage cost tracking
+
+---
+
+## Monitoring
+
+[dashboard.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/monitoring/dashboard.py) — Real-time terminal dashboard with:
+- Progress bars, stage timing, ANSI-colored output
+- Per-repo status tracking (completed/failed/skipped)
+- Final summary report with cost breakdown
+- State persistence to `data/` directory
+- Health checks for all dependencies (GitHub, GitLab, Anthropic, Supabase)
+
+---
+
+## How to Run
+
+```bash
+# Full pipeline on manifests file
+python -m pipeline run --manifests data/manifests.json
+
+# Single repo
+python -m pipeline run-single --repo mk-knight23/my-repo --category webapp
+
+# Health check
+python -m pipeline health
+
+# Quality check on existing files
+python -m pipeline quality --files-dir ./output
+
+# FastAPI server (V1 LangGraph path)
+uvicorn api.main:app --reload
+```
+
+---
+
+## Key Files Quick Reference
+
+| File | Purpose |
+|---|---|
+| [models.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py) | 13 Pydantic domain models |
+| [config.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/config.py) | Centralized config (LLM, GitHub, GitLab, Supabase) |
+| [orchestrator.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/orchestrator.py) | Async batch pipeline runner |
+| [llm.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/llm.py) | LLM client with retry + cost tracking |
+| [scanner.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/scanner.py) | Clone repos + extract source |
+| [analyzer.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/analyzer.py) | LLM-powered deep/shallow analysis |
+| [architect.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/architect.py) | Mobile architecture design |
+| [codegen.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/codegen.py) | Full mobile app code generation |
+| [ci_templates.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/ci_templates.py) | GitLab CI/CD templates per framework |
+| [pusher.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/pusher.py) | GitLab repo creation + push |
+| [gates.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/quality/gates.py) | 15 quality gates engine |
+| [dashboard.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/monitoring/dashboard.py) | Monitoring + health checks |
+| [__main__.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/__main__.py) | CLI entry point |
+| [pipeline.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/graph/pipeline.py) | LangGraph StateGraph (V1) |
+| [api/main.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/api/main.py) | FastAPI endpoints (V1) |

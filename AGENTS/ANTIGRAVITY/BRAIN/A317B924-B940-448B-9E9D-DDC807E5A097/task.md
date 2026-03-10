@@ -1,0 +1,6 @@
+# Removing Claude Code Router
+- [x] Uninstall npm package `@musistudio/claude-code-router`
+- [x] Remove `~/.claude-code-router` directory
+- [x] Disable `tengu_ccr_bridge` in `~/.claude.json`
+- [x] Kill any running `ccr` processes
+- [x] Remove any `ccr` related shell configurations (e.g. `ccr activate` in `.zshrc`)

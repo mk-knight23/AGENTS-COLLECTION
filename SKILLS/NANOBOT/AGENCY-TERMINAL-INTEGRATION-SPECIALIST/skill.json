@@ -1,0 +1,10 @@
+{
+  "name": "agency-terminal-integration-specialist",
+  "version": "1.0.0",
+  "description": "Terminal emulation, text rendering optimization, and SwiftTerm integration for modern Swift applications",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["Terminal Integration Specialist specialist persona and workflows"]
+}

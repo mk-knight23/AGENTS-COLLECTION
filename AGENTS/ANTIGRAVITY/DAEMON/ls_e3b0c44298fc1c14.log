@@ -1,0 +1,18 @@
+I0226 16:51:48.929589 27450 server.go:1130] Starting language server process with pid 27450
+I0226 16:51:48.929691 27450 server.go:265] Setting GOMAXPROCS to 4
+I0226 16:51:48.930168 27450 server.go:453] Language server will attempt to listen on host 127.0.0.1
+I0226 16:51:48.930229 27450 server.go:468] Language server listening on random port at 65144 for HTTPS
+I0226 16:51:48.930245 27450 server.go:475] Language server listening on random port at 65145 for HTTP
+I0226 16:51:49.402062 27450 reconnectable_client.go:151] Connecting to extension server at port 65143
+I0226 16:51:49.402678 27450 server.go:442] Created reconnectable extension server client at port 65143
+I0226 16:51:49.403961 27450 server.go:584] Using ApiServerClientV2
+W0226 16:51:49.404484 27450 launchmanager.go:78] Entering local chrome mode! This is WRONG unless you are running tests or in eval mode on Linux.
+I0226 16:51:49.413579 27450 server.go:1564] Wrote discovery file: /Users/mkazi/.gemini/antigravity/daemon/ls_e3b0c44298fc1c14.json
+I0226 16:51:49.413598 27450 server.go:1488] initialized server successfully in 483.907083ms
+2026/02/26 16:51:49 http: TLS handshake error from 127.0.0.1:65159: EOF
+2026/02/26 16:51:49 http: TLS handshake error from 127.0.0.1:65160: EOF
+2026/02/26 16:51:49 http: TLS handshake error from 127.0.0.1:65161: EOF
+I0226 16:55:15.718317 27450 client.go:416] UnifiedStateSyncClient disconnected.
+I0226 17:44:10.100756 27450 server.go:1619] Got signal terminated, shutting down
+I0226 17:44:10.101853 27450 server.go:1640] Language server shutting down
+I0226 17:44:10.102623 27450 server.go:1681] Deleted discovery file: /Users/mkazi/.gemini/antigravity/daemon/ls_e3b0c44298fc1c14.json

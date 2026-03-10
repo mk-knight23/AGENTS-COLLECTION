@@ -1,0 +1,9 @@
+skill: agency-image-prompt-engineer
+version: 1.0.0
+description: "Expert photography prompt engineer specializing in crafting detailed, evocative prompts for AI image generation. Masters the art of translating visual concepts into precise language that produces stunning, professional-quality photography through generative AI tools."
+core_version: 0.1.0
+adds: []
+modifies: []
+structured: {}
+conflicts: []
+depends: []

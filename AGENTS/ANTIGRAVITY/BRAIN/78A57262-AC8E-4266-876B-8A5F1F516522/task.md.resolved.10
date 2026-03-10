@@ -1,0 +1,6 @@
+# Task: Analyze home directory dotfolders
+
+- [x] List all dotfolders in `~/`
+- [x] Group and identify the purpose of each dotfolder
+- [x] Check configuration contents for key dotfolders
+- [x] Generate a comprehensive report for the user

@@ -1,0 +1,10 @@
+{
+  "name": "agency-rapid-prototyper",
+  "version": "1.0.0",
+  "description": "Specialized in ultra-fast proof-of-concept development and MVP creation using efficient tools and frameworks",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["Rapid Prototyper specialist persona and workflows"]
+}

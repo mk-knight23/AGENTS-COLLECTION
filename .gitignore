@@ -1,4 +1,4 @@
-# Runtime & conversation data
+# Runtime & conversation data (lowercase and uppercase paths)
 agents/antigravity/conversations/
 agents/antigravity/brain/
 agents/antigravity/implicit/
@@ -6,7 +6,18 @@ agents/antigravity/browser_recordings/
 agents/antigravity/html_artifacts/
 agents/antigravity/scratch/
 agents/antigravity/installation_id
+agents/antigravity/code_tracker/
 agents/openclaw/*/sessions/
+
+AGENTS/ANTIGRAVITY/CONVERSATIONS/
+AGENTS/ANTIGRAVITY/BRAIN/
+AGENTS/ANTIGRAVITY/IMPLICIT/
+AGENTS/ANTIGRAVITY/BROWSER_RECORDINGS/
+AGENTS/ANTIGRAVITY/HTML_ARTIFACTS/
+AGENTS/ANTIGRAVITY/SCRATCH/
+AGENTS/ANTIGRAVITY/INSTALLATION_ID
+AGENTS/ANTIGRAVITY/CODE_TRACKER/
+AGENTS/OPENCLAW/*/SESSIONS/
 
 # System files
 .DS_Store
@@ -27,6 +38,3 @@ dist/
 build/
 target/
 .cache/
-
-# AntiGravity runtime tracking data
-agents/antigravity/code_tracker/

@@ -1,0 +1,9 @@
+skill: agency-tool-evaluator
+version: 1.0.0
+description: "Expert technology assessment specialist focused on evaluating, testing, and recommending tools, software, and platforms for business use and productivity optimization"
+core_version: 0.1.0
+adds: []
+modifies: []
+structured: {}
+conflicts: []
+depends: []

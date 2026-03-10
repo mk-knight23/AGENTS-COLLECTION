@@ -1,0 +1,7 @@
+# Start All Claw Projects Gateways
+
+- [x] Stop `zeroclaw`, `NanoClaw`, and `picoclaw` (keeping `openclaw` running)
+- [x] Restart `zeroclaw`, `NanoClaw`, and `picoclaw` from their project folders
+- [x] Verify the status of the restarted gateways (zeroclaw: ✅, picoclaw: ✅, NanoClaw: ❌)
+- [ ] Determine how to run `nanobot` and execute it
+- [ ] Verify `nanobot` is running correctly

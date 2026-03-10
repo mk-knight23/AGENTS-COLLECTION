@@ -1,0 +1,6 @@
+# Task: Check remaining dotfolders and recommend deletions
+
+- [/] Calculate sizes for all `~/.*` folders
+- [ ] Sort folders by size
+- [ ] Analyze which can be safely deleted
+- [ ] Present report to user

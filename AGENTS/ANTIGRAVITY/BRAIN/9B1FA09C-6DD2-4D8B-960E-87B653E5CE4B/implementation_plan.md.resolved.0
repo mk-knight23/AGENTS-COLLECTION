@@ -1,0 +1,149 @@
+# Full Project Audit & Restructuring Plan
+
+## Problem
+
+The repo-evolution-pipeline has **two parallel systems** — a V1 LangGraph prototype and a V2 orchestrator — with duplicated models, broken cross-references, and 15+ schema mismatches preventing the pipeline from running.
+
+## Audit Results
+
+### 🟢 Working & Keep (V2 Pipeline — 19 files)
+
+| File | Status | Notes |
+|------|--------|-------|
+| [pipeline/__init__.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/__init__.py) | ✅ | Package init |
+| [pipeline/__main__.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/__main__.py) | ⚠️ Fix | CLI entry point — references `NavigationType.TABS` |
+| [pipeline/core/config.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/config.py) | ✅ | Config loader — works |
+| [pipeline/core/llm.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/llm.py) | ✅ | LLM client with retry — works |
+| [pipeline/core/models.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py) | ⚠️ Fix | Domain models — 6 remaining schema issues |
+| [pipeline/core/orchestrator.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/orchestrator.py) | ⚠️ Fix | Already partially fixed, more fixes needed |
+| [pipeline/agents/scanner.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/scanner.py) | ✅ | Already fixed (clone URL + API fallback) |
+| [pipeline/agents/analyzer.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/analyzer.py) | ✅ | Already fixed (topics, model kwarg) |
+| [pipeline/agents/architect.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/architect.py) | ✅ | Works with model fixes |
+| [pipeline/agents/codegen.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/codegen.py) | ⚠️ Fix | Uses `model=config.llm.codegen_model` |
+| [pipeline/agents/ci_templates.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/ci_templates.py) | ✅ | CI yaml templates — works |
+| [pipeline/agents/pusher.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/pusher.py) | ✅ | Already fixed (namespace→group) |
+| [pipeline/quality/gates.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/quality/gates.py) | ✅ | Quality engine — works |
+| [pipeline/monitoring/dashboard.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/monitoring/dashboard.py) | ✅ | Dashboard — works |
+| [pipeline/templates/design-system/tokens.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/templates/design-system/tokens.py) | ✅ | Design tokens generator — useful |
+| [templates/expo/app.json.j2](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/templates/expo/app.json.j2) | ✅ | Jinja2 template — useful |
+| [templates/expo/package.json.j2](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/templates/expo/package.json.j2) | ✅ | Jinja2 template — useful |
+| [requirements.txt](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/requirements.txt) | ⚠️ Fix | Has commented-out deps we need |
+| [CLAUDE.md](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/CLAUDE.md) | ✅ | Project docs |
+
+### 🔴 Delete (V1 Legacy Dead Code — 12 files)
+
+These files are **never imported by the V2 pipeline** and use a completely different state system ([graph/state.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/graph/state.py) TypedDict vs [pipeline/core/models.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py) Pydantic).
+
+| File | Reason for Deletion |
+|------|---------------------|
+| [agents/scanner.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/scanner.py) | V1 scanner — imports from `graph.state` |
+| [agents/analyzer.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/analyzer.py) | V1 analyzer — uses `graph.state.DesignBrief` |
+| [agents/architect.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/architect.py) | V1 architect — uses `graph.state.MobileArchitecture` |
+| [agents/codegen.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/codegen.py) | V1 codegen — uses `graph.state.GenerationResult` |
+| [agents/ci_builder.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/ci_builder.py) | V1 CI builder — uses `graph.state.PipelineState` |
+| [agents/doc_writer.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/doc_writer.py) | V1 doc writer — uses `graph.state.PipelineState` |
+| [graph/state.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/graph/state.py) | V1 state schema — separate TypedDict models |
+| [graph/pipeline.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/graph/pipeline.py) | V1 LangGraph – requires `langgraph` (commented out in requirements) |
+| [api/main.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/api/main.py) | V1 FastAPI endpoint — wires V1 graph, unused |
+| [tests/__init__.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/tests/__init__.py) | Empty V1 test dir |
+| [tests/integration/__init__.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/tests/integration/__init__.py) | Empty V1 test dir |
+| [tests/unit/__init__.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/tests/unit/__init__.py) | Empty V1 test dir |
+
+### 🟡 Fix (Remaining Bug List)
+
+#### 1. [models.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py) — Add missing fields and enum values
+
+| Issue | Fix |
+|-------|-----|
+| [RepoManifest](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#71-90) missing `topics` | Add `topics: list[str] = Field(default_factory=list)` |
+| [RepoCategory](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#17-24) missing `DASHBOARD`, `ECOMMERCE`, `SOCIAL`, `BLOG`, `DOCS`, `API` | Add these enum members (used by architect) |
+| [QualityGate](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#164-171) missing [passed](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/tests/test_models.py#95-105), `message`, `weight`, `is_critical` | Add these fields (used by tests and gates logic) |
+
+#### 2. [codegen.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/codegen.py) — Invalid `model=` kwarg
+
+Same bug as analyzer had — uses `model=config.llm.codegen_model` which doesn't exist. Fix: use `heavy=True`.
+
+#### 3. [__main__.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/__main__.py) — Quality command references
+
+Line 128 uses `NavigationType.TABS` (already fixed via alias) but also constructs objects in [cmd_quality()](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/__main__.py#106-147) that may hit other schema issues.
+
+#### 4. [conftest.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/tests/conftest.py) — Test fixtures misaligned
+
+- [sample_manifest](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/tests/conftest.py#16-29) uses `topics=["portfolio", "react", "nextjs"]` (needs field added to model)
+- [sample_deep_analysis](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/tests/conftest.py#60-75) uses `data_models=["Project", "ContactForm"]` (strings, needs list[dict] fix or flexible field)
+- [sample_architecture](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/tests/conftest.py#77-98) uses [ScreenSpec(name="Home", purpose=..., components=...)](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#135-148) (already fixed)
+
+#### 5. [test_models.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/tests/test_models.py) — Tests use missing fields
+
+- [QualityGate(passed=True, message="...", weight=10, is_critical=True)](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#164-171) — fields don't exist
+- [RepoManifest](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#71-90) test asserts `m.topics == []` — field missing
+
+---
+
+## Proposed Changes
+
+### Component 1: Delete V1 Legacy Code
+
+#### [DELETE] [scanner.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/scanner.py)
+#### [DELETE] [analyzer.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/analyzer.py)
+#### [DELETE] [architect.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/architect.py)
+#### [DELETE] [codegen.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/codegen.py)
+#### [DELETE] [ci_builder.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/ci_builder.py)
+#### [DELETE] [doc_writer.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/doc_writer.py)
+#### [DELETE] [state.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/graph/state.py)
+#### [DELETE] [pipeline.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/graph/pipeline.py)
+#### [DELETE] [main.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/api/main.py)
+#### [DELETE] [tests/](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/tests/) (entire empty V1 test dir)
+
+---
+
+### Component 2: Fix Domain Models
+
+#### [MODIFY] [models.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py)
+
+1. Add `topics` field to [RepoManifest](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#71-90)
+2. Add `DASHBOARD`, `ECOMMERCE`, `SOCIAL`, `BLOG`, `DOCS`, `API` to [RepoCategory](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#17-24)
+3. Add [passed](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/tests/test_models.py#95-105), `message`, `weight`, `is_critical` fields to [QualityGate](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#164-171)
+4. Change `data_models` in [DeepAnalysis](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#92-115) from `list[dict]` to `list[Any]` for LLM flexibility
+
+---
+
+### Component 3: Fix Codegen Agent
+
+#### [MODIFY] [codegen.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/codegen.py)
+
+Replace all `model=config.llm.codegen_model` with `heavy=True`.
+
+---
+
+### Component 4: Fix Test Fixtures
+
+#### [MODIFY] [conftest.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/tests/conftest.py)
+
+Align fixtures with updated model schemas.
+
+---
+
+### Component 5: Clean Up Empty Dirs
+
+#### [DELETE] [design_system/](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/templates/design_system/) (empty [__init__.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/tests/__init__.py), no other files — duplicate of `design-system/`)
+
+---
+
+## Verification Plan
+
+### Automated Tests
+
+1. **Unit tests**: `cd "/Users/mkazi/GitLab Mobile /repo-evolution-pipeline" && python3 -m pytest pipeline/tests/ -v`
+2. **Import check**: `cd "/Users/mkazi/GitLab Mobile /repo-evolution-pipeline" && python3 -c "from pipeline.core.models import *; from pipeline.agents import scanner, analyzer, architect, codegen, pusher; print('All imports OK')"`
+
+### Integration Test
+
+3. **Pipeline run**: `cd "/Users/mkazi/GitLab Mobile /repo-evolution-pipeline" && python3 -m pipeline run-single --repo mk-knight23/23-web-financial-printing --category webapp`
+   - **Expected**: Clone → Analyze → Architect → Generate → Quality → Push all complete without errors
+   - **Success criteria**: Exit code 0, GitLab repo URL printed
+
+### Clean Build Check
+
+4. **No V1 references**: `grep -r "from graph\." "/Users/mkazi/GitLab Mobile /repo-evolution-pipeline/pipeline/"` should return nothing
+5. **No broken imports**: `grep -r "from agents\." "/Users/mkazi/GitLab Mobile /repo-evolution-pipeline/pipeline/"` should return nothing

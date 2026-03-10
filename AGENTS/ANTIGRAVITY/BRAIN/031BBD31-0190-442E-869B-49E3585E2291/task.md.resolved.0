@@ -1,0 +1,6 @@
+# Start All Claw Projects Gateways
+
+- [ ] Identify all claw projects in `~/Open-Universe` (`zeroclaw`, `openclaw`, `NanoClaw`, `picoclaw`, etc.)
+- [ ] Determine how to start the gateway for each project
+- [ ] Execute the startup commands in the background
+- [ ] Verify gateways are running

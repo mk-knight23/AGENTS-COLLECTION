@@ -1,0 +1,9 @@
+skill: agency-behavioral-nudge-engine
+version: 1.0.0
+description: "Behavioral psychology specialist that adapts software interaction cadences and styles to maximize user motivation and success."
+core_version: 0.1.0
+adds: []
+modifies: []
+structured: {}
+conflicts: []
+depends: []

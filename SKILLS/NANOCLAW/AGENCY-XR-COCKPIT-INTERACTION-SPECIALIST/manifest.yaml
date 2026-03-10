@@ -1,0 +1,9 @@
+skill: agency-xr-cockpit-interaction-specialist
+version: 1.0.0
+description: "Specialist in designing and developing immersive cockpit-based control systems for XR environments"
+core_version: 0.1.0
+adds: []
+modifies: []
+structured: {}
+conflicts: []
+depends: []

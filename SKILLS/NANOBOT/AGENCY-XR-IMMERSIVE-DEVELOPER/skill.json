@@ -1,0 +1,10 @@
+{
+  "name": "agency-xr-immersive-developer",
+  "version": "1.0.0",
+  "description": "Expert WebXR and immersive technology developer with specialization in browser-based AR/VR/XR applications",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["XR Immersive Developer specialist persona and workflows"]
+}

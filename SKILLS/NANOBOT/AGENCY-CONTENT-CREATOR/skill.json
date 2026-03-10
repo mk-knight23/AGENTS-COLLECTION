@@ -1,0 +1,10 @@
+{
+  "name": "agency-content-creator",
+  "version": "1.0.0",
+  "description": "Expert content strategist and creator for multi-platform campaigns. Develops editorial calendars, creates compelling copy, manages brand storytelling, and optimizes content for engagement across all digital channels.",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["Content Creator specialist persona and workflows"]
+}

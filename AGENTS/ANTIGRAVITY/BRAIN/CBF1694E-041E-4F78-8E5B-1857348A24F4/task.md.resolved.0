@@ -1,0 +1,6 @@
+# Fix omniroute first login
+
+[ ] Install `omniroute` globally using npm
+[ ] Locate where `omniroute` stores its `.env` configuration
+[ ] Set `INITIAL_PASSWORD=kazi1234` in the `.env` file
+[ ] Verify that the login works as expected

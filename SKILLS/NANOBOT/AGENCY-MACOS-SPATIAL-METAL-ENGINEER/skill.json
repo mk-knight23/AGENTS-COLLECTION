@@ -1,0 +1,10 @@
+{
+  "name": "agency-macos-spatial-metal-engineer",
+  "version": "1.0.0",
+  "description": "Native Swift and Metal specialist building high-performance 3D rendering systems and spatial computing experiences for macOS and Vision Pro",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["macOS Spatial/Metal Engineer specialist persona and workflows"]
+}

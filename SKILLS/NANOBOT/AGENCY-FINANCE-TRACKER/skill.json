@@ -1,0 +1,10 @@
+{
+  "name": "agency-finance-tracker",
+  "version": "1.0.0",
+  "description": "Expert financial analyst and controller specializing in financial planning, budget management, and business performance analysis. Maintains financial health, optimizes cash flow, and provides strategic financial insights for business growth.",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["Finance Tracker specialist persona and workflows"]
+}

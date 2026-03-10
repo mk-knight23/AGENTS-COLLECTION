@@ -1,0 +1,26 @@
+# Pipeline Upgrade Task List
+
+## Research & Audit
+- [x] Audit [analyzer.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/analyzer.py) for design extraction capabilities
+- [x] Audit [codegen.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/codegen.py) for component mapping precision
+- [x] Check existing deployment logic in [pusher.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/agents/pusher.py) and `ci_templates/`
+- [x] Identify unnecessary/legacy code (Flutter/Ionic stubs)
+
+## Planning
+- [x] Create implementation plan for "Real App" features
+- [ ] Design EAS (Expo Application Services) integration for deployment [/]
+- [ ] Plan design mapping improvements (CSS-to-Theme mapping) [ ]
+
+## Implementation - Phase 1: Cleanup & Stabilization
+- [x] Remove unused frameworks (Flutter, Ionic) from agents and templates
+- [x] Refactor [models.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py) to focus on Expo-first architecture
+
+## Implementation - Phase 2: Feature Enhancement
+- [ ] Enhance [analyzer.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/analyzer.py) to extract specific UI patterns (color palettes, layouts) [/]
+- [ ] Upgrade [codegen.py](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/agents/codegen.py) to use advanced Layout components [ ]
+- [ ] Implement automated deployment trigger (EAS CLI or GitLab CI) [ ]
+
+## Verification
+- [ ] Run a test evolution of a real GitHub web repo [ ]
+- [ ] Verify deployment to Expo/GitLab [ ]
+- [ ] Perform quality gate check on the "Real App" [ ]

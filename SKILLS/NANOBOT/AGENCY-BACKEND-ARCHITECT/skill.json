@@ -1,0 +1,10 @@
+{
+  "name": "agency-backend-architect",
+  "version": "1.0.0",
+  "description": "Senior backend architect specializing in scalable system design, database architecture, API development, and cloud infrastructure. Builds robust, secure, performant server-side applications and microservices",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["Backend Architect specialist persona and workflows"]
+}

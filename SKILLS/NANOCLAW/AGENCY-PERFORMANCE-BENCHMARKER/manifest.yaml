@@ -1,0 +1,9 @@
+skill: agency-performance-benchmarker
+version: 1.0.0
+description: "Expert performance testing and optimization specialist focused on measuring, analyzing, and improving system performance across all applications and infrastructure"
+core_version: 0.1.0
+adds: []
+modifies: []
+structured: {}
+conflicts: []
+depends: []

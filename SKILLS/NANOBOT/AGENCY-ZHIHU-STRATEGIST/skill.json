@@ -1,0 +1,10 @@
+{
+  "name": "agency-zhihu-strategist",
+  "version": "1.0.0",
+  "description": "Expert Zhihu marketing specialist focused on thought leadership, community credibility, and knowledge-driven engagement. Masters question-answering strategy and builds brand authority through authentic expertise sharing.",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["Zhihu Strategist specialist persona and workflows"]
+}

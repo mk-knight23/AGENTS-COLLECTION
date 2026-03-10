@@ -1,0 +1,59 @@
+# Walkthrough: Repo Evolution Pipeline Restructuring
+
+I have completed a comprehensive audit and restructuring of the **repo-evolution-pipeline**. The project is now clean, fully tested, and functional for end-to-end mobile app generation.
+
+## 🛠️ Key Improvements
+
+### 1. Legacy Code Removal (V1 → V2)
+Deleted **12 obsolete files** from the V1 LangGraph prototype that were causing import confusion and duplicating state models.
+- Removed `/agents/`, `/graph/`, `/api/`, and `/tests/` (V1).
+- Unified the system under the `pipeline/` (V2) architecture.
+
+### 2. Schema Normalization
+Fixed **15+ Pydantic schema mismatches** that prevented data from flowing between agents.
+- **Models**: Added missing fields (`topics`, `complexity_score`, `design_tokens`, etc.) to [RepoManifest](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#77-97) and [DeepAnalysis](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#99-122).
+- **Enums**: Expanded [RepoCategory](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#17-30) and [NavigationType](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#39-45) to match LLM-generated output.
+- **Quality Gates**: Standardized the [QualityGate](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/models.py#171-182) model to track [passed](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/tests/test_models.py#95-105) status and `weight`.
+
+### 3. Agent & Core Fixes
+- **LLM Client**: Added [.env](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/.env) loading via `python_dotenv` for seamless local/background execution.
+- **Codegen**: Fixed the [invoke_with_retry](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/core/llm.py#149-202) bug where it attempted to parse React Native code as JSON.
+- **Scanner**: Updated route extraction to correctly handle Next.js root routes (`/`).
+- **Packaging**: Renamed `design-system` to [design_system](file:///Users/mkazi/GitLab%20Mobile%20/repo-evolution-pipeline/pipeline/quality/gates.py#372-390) to fix Python import errors.
+
+## 🧪 Verification Results
+
+### Automated Tests
+Successfully synchronized and passed **all 51 unit tests**.
+```bash
+python3 -m pytest pipeline/tests/ -v
+# Result: 51 passed in 0.04s
+```
+
+### End-to-End Pipeline Run
+Executed a full run for the target repository: `mk-knight23/23-web-financial-printing`.
+
+| Stage | Status | Result |
+|-------|--------|--------|
+| **Scanner** | ✅ | Extracted 85 files |
+| **Analyzer** | ✅ | Detected Angular 21 (Standalones/Signals) |
+| **Architect** | ✅ | Designed React Native + Expo Router (3 screens) |
+| **Codegen** | ✅ | Generated 19 files (34k chars) |
+| **Quality** | ✅ | Score: **73.3/100** |
+| **Pusher** | ✅ | Pushed to GitLab |
+
+**Generated Repo**: [23-web-financial-printing-mobile-react-native](https://gitlab.com/mk-knight23/23-web-financial-printing-mobile-react-native)
+
+## 📁 Project Structure (Final)
+```text
+.
+├── pipeline/
+│   ├── agents/        # Scanner, Analyzer, Architect, Codegen, Pusher
+│   ├── core/          # Config, LLM, Models, Orchestrator
+│   ├── quality/       # Quality Gates Engine
+│   ├── monitoring/    # Dashboard
+│   ├── templates/     # Design system tokens & code templates
+│   └── tests/         # 51 synchronized unit tests
+├── data/              # Runtime data (manifests/logs)
+└── CLAUDE.md          # Project documentation
+```

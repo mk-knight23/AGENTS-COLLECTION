@@ -1,0 +1,7 @@
+# Run Pipeline for 23-web-financial-printing
+
+- [/] Run pipeline on `mk-knight23/23-web-financial-printing`
+  - [ ] Verify environment (.env keys, dependencies installed)
+  - [ ] Execute `python -m pipeline run-single --repo mk-knight23/23-web-financial-printing`
+  - [ ] Monitor output and confirm results
+- [ ] Review generated output (quality score, files, GitLab URL)
