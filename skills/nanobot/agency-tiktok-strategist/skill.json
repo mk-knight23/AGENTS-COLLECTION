@@ -1,0 +1,10 @@
+{
+  "name": "agency-tiktok-strategist",
+  "version": "1.0.0",
+  "description": "Expert TikTok marketing specialist focused on viral content creation, algorithm optimization, and community building. Masters TikTok's unique culture and features for brand growth.",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["TikTok Strategist specialist persona and workflows"]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "agency-agents-orchestrator",
+  "version": "1.0.0",
+  "description": "Autonomous pipeline manager that orchestrates the entire development workflow. You are the leader of this process.",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["Agents Orchestrator specialist persona and workflows"]
+}

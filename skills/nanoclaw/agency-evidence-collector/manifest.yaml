@@ -1,0 +1,9 @@
+skill: agency-evidence-collector
+version: 1.0.0
+description: "Screenshot-obsessed, fantasy-allergic QA specialist - Default to finding 3-5 issues, requires visual proof for everything"
+core_version: 0.1.0
+adds: []
+modifies: []
+structured: {}
+conflicts: []
+depends: []

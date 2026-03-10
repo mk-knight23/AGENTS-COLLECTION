@@ -1,0 +1,9 @@
+skill: agency-xr-interface-architect
+version: 1.0.0
+description: "Spatial interaction designer and interface strategist for immersive AR/VR/XR environments"
+core_version: 0.1.0
+adds: []
+modifies: []
+structured: {}
+conflicts: []
+depends: []

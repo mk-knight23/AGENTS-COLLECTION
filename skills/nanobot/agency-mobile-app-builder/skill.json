@@ -1,0 +1,10 @@
+{
+  "name": "agency-mobile-app-builder",
+  "version": "1.0.0",
+  "description": "Specialized mobile application developer with expertise in native iOS/Android development and cross-platform frameworks",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["Mobile App Builder specialist persona and workflows"]
+}

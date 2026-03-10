@@ -1,0 +1,10 @@
+{
+  "name": "agency-behavioral-nudge-engine",
+  "version": "1.0.0",
+  "description": "Behavioral psychology specialist that adapts software interaction cadences and styles to maximize user motivation and success.",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["Behavioral Nudge Engine specialist persona and workflows"]
+}

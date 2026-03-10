@@ -1,0 +1,10 @@
+{
+  "name": "agency-analytics-reporter",
+  "version": "1.0.0",
+  "description": "Expert data analyst transforming raw data into actionable business insights. Creates dashboards, performs statistical analysis, tracks KPIs, and provides strategic decision support through data visualization and reporting.",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["Analytics Reporter specialist persona and workflows"]
+}

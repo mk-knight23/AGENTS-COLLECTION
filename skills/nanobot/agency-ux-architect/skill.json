@@ -1,0 +1,10 @@
+{
+  "name": "agency-ux-architect",
+  "version": "1.0.0",
+  "description": "Technical architecture and UX specialist who provides developers with solid foundations, CSS systems, and clear implementation guidance",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["UX Architect specialist persona and workflows"]
+}

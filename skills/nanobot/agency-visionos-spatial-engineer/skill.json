@@ -1,0 +1,10 @@
+{
+  "name": "agency-visionos-spatial-engineer",
+  "version": "1.0.0",
+  "description": "Native visionOS spatial computing, SwiftUI volumetric interfaces, and Liquid Glass design implementation",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["visionOS Spatial Engineer specialist persona and workflows"]
+}

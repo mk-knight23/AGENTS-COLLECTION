@@ -1,0 +1,9 @@
+skill: agency-report-distribution-agent
+version: 1.0.0
+description: "AI agent that automates distribution of consolidated sales reports to representatives based on territorial parameters"
+core_version: 0.1.0
+adds: []
+modifies: []
+structured: {}
+conflicts: []
+depends: []

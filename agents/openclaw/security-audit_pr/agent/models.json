@@ -1,0 +1,1743 @@
+{
+  "providers": {
+    "qwen-portal": {
+      "baseUrl": "https://portal.qwen.ai/v1",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "coder-model",
+          "name": "Qwen Coder",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192
+        },
+        {
+          "id": "vision-model",
+          "name": "Qwen Vision",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192
+        }
+      ],
+      "apiKey": "qwen-oauth"
+    },
+    "kimi": {
+      "baseUrl": "https://api.kimi.com/coding/v1",
+      "apiKey": "sk-kimi-qsVLB5AITTbBYkvuevtaUly9RBnqAlctoyuZsdz4eaFd5DebITEo5Qlmse2WuP4V",
+      "api": "anthropic-messages",
+      "models": [
+        {
+          "id": "kimi-k2-thinking-turbo",
+          "name": "Kimi K2 Thinking Turbo",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "kimi-k2-preview",
+          "name": "Kimi K2 Preview",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "k2p5",
+          "name": "Kimi For Coding",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        }
+      ]
+    },
+    "alibaba": {
+      "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/v1",
+      "apiKey": "sk-sp-de7ca7b8e824498c933b2a6b2fae7604",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "qwen3.5-plus",
+          "name": "Qwen 3.5 Plus",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "qwen3-max-2026-01-23",
+          "name": "Qwen 3 Max (2026-01-23)",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "qwen3-coder-next",
+          "name": "Qwen 3 Coder Next",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "qwen3-coder-plus",
+          "name": "Qwen 3 Coder Plus",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "glm-5",
+          "name": "GLM 5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "glm-4.7",
+          "name": "GLM 4.7",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "MiniMax-M2.5",
+          "name": "MiniMax M2.5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "manifest": {
+      "baseUrl": "https://app.manifest.build/v1",
+      "api": "openai-completions",
+      "apiKey": "mnfst_LTm6WeGMkJQDUSuUMcpjss1Yl9Sxvnep7qEF0LZnRMk",
+      "models": [
+        {
+          "id": "auto",
+          "name": "auto"
+        }
+      ]
+    },
+    "kimi-2": {
+      "baseUrl": "https://api.kimi.com/coding/v1",
+      "apiKey": "sk-kimi-ihFOLrNf3Kn42NbW7vUPWJ0gDnhRjL0Mfh8mWW8WFaX8tanjaRPKJVwCvjzO6c3J",
+      "api": "anthropic-messages",
+      "models": [
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "k2p5",
+          "name": "Kimi For Coding",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        }
+      ]
+    },
+    "kimi-3": {
+      "baseUrl": "https://api.kimi.com/coding/v1",
+      "apiKey": "sk-kimi-2uzYWETy0U9TFNN6j2dPghPLAEsbLDaOlYrFozxCuRwt6jR33pVixRDgpsowaaKQ",
+      "api": "anthropic-messages",
+      "models": [
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "k2p5",
+          "name": "Kimi For Coding",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        }
+      ]
+    },
+    "kimi-4": {
+      "baseUrl": "https://api.kimi.com/coding/v1",
+      "apiKey": "sk-kimi-dSoACoS7aJu7BKw1TwPw1luEZfOjxg2959PXcO8FSkdnbMi5fdKVG2O5JoN5ZfzH",
+      "api": "anthropic-messages",
+      "models": [
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "k2p5",
+          "name": "Kimi For Coding",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        }
+      ]
+    },
+    "zai-1": {
+      "baseUrl": "https://api.z.ai/api/coding/paas/v4",
+      "apiKey": "1cd54a1d237e4693b516a56e8513366a.1r4gXJRbfYp0Nw52",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "glm-5",
+          "name": "GLM 5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "api": "openai-completions"
+        },
+        {
+          "id": "glm-4.7",
+          "name": "GLM 4.7",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "zai-2": {
+      "baseUrl": "https://api.z.ai/api/coding/paas/v4",
+      "apiKey": "d0e85ef16c6a4539a5338a808c9c5876.cQJh5FAURxIAJJud",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "glm-5",
+          "name": "GLM 5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "api": "openai-completions"
+        },
+        {
+          "id": "glm-4.7",
+          "name": "GLM 4.7",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "zai-3": {
+      "baseUrl": "https://api.z.ai/api/coding/paas/v4",
+      "apiKey": "48213e06382a422891932c26296e3133.6NpDguGhn4CPvSOZ",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "glm-4.7",
+          "name": "GLM 4.7",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "bigmodel-1": {
+      "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
+      "apiKey": "1cd54a1d237e4693b516a56e8513366a.1r4gXJRbfYp0Nw52",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "glm-5",
+          "name": "GLM 5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "api": "openai-completions"
+        },
+        {
+          "id": "glm-4.7",
+          "name": "GLM 4.7",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "bigmodel-2": {
+      "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
+      "apiKey": "d0e85ef16c6a4539a5338a808c9c5876.cQJh5FAURxIAJJud",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "glm-4.7",
+          "name": "GLM 4.7",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "bigmodel-3": {
+      "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
+      "apiKey": "48213e06382a422891932c26296e3133.6NpDguGhn4CPvSOZ",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "glm-4.7",
+          "name": "GLM 4.7",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "input": [
+            "text"
+          ],
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "alibaba-anthropic": {
+      "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/apps/anthropic",
+      "apiKey": "sk-sp-de7ca7b8e824498c933b2a6b2fae7604",
+      "api": "anthropic-messages",
+      "models": [
+        {
+          "id": "qwen3.5-plus",
+          "name": "Qwen 3.5 Plus",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "qwen3-max-2026-01-23",
+          "name": "Qwen 3 Max (2026-01-23)",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "qwen3-coder-next",
+          "name": "Qwen 3 Coder Next",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "qwen3-coder-plus",
+          "name": "Qwen 3 Coder Plus",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "glm-5",
+          "name": "GLM 5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "glm-4.7",
+          "name": "GLM 4.7",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        },
+        {
+          "id": "MiniMax-M2.5",
+          "name": "MiniMax M2.5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "anthropic-messages"
+        }
+      ]
+    },
+    "openrouter": {
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "openai/gpt-oss-120b:free",
+          "name": "GPT OSS 120B (Free)",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 131072,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "meta-llama/llama-3.3-70b-instruct:free",
+          "name": "Llama 3.3 70B Instruct",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "qwen/qwen3-vl-235b-a22b-thinking",
+          "name": "Qwen3 VL 235B Thinking (Free)",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 131072,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "qwen/qwen3-vl-30b-a3b-thinking",
+          "name": "Qwen3 VL 30B Thinking (Free)",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 131072,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "nvidia/nemotron-3-nano-30b-a3b:free",
+          "name": "Nemotron 30B (Free)",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 256000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "openai/gpt-oss-20b:free",
+          "name": "GPT OSS 20B (Free)",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 131072,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "stepfun/step-3.5-flash:free",
+          "name": "StepFun Step 3.5 Flash (Free)",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 256000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "arcee-ai/trinity-large-preview:free",
+          "name": "Arcee Trinity Large (Free)",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 131072,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "nvidia/nemotron-nano-12b-v2-vl:free",
+          "name": "Nemotron Nano 12B VL (Free)",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "nvidia/nemotron-nano-9b-v2:free",
+          "name": "Nemotron Nano 9B (Free)",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "google/gemma-3-12b-it:free",
+          "name": "Gemma 3 12B (Free)",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32768,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "google/gemma-3-4b-it:free",
+          "name": "Gemma 3 4B (Free)",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32768,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "google/gemma-3n-e4b-it:free",
+          "name": "Gemma 3n E4B (Free)",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 8192,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "google/gemma-3n-e2b-it:free",
+          "name": "Gemma 3n E2B (Free)",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 8192,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "liquid/lfm-2.5-1.2b-instruct:free",
+          "name": "LFM 2.5 1.2B Instruct (Free)",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32768,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "liquid/lfm-2.5-1.2b-thinking:free",
+          "name": "LFM 2.5 1.2B Thinking (Free)",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32768,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "openrouter/free",
+          "name": "OpenRouter Auto Free",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "auto",
+          "name": "OpenRouter Auto",
+          "reasoning": false,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192
+        }
+      ],
+      "apiKey": "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"
+    },
+    "google": {
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta/openai/",
+      "apiKey": "AIzaSyB7Tlkep7tBBHoph_VqfT3Eof5RJBilTLM",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "gemini-2.5-pro",
+          "name": "Gemini 2.5 Pro",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 1000000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "gemini-2.5-flash",
+          "name": "Gemini 2.5 Flash",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 1000000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "gemini-2.5-flash-lite",
+          "name": "Gemini 2.5 Flash Lite",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 1000000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "gemini-2.0-flash",
+          "name": "Gemini 2.0 Flash",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 1000000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "alibaba-2": {
+      "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/v1",
+      "apiKey": "sk-sp-80ad6d6cdbc143a8bbec789269734a42",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "qwen3.5-plus",
+          "name": "Qwen 3.5 Plus",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "qwen3-max-2026-01-23",
+          "name": "Qwen 3 Max (2026-01-23)",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "qwen3-coder-next",
+          "name": "Qwen 3 Coder Next",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "qwen3-coder-plus",
+          "name": "Qwen 3 Coder Plus",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "glm-5",
+          "name": "GLM 5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "glm-4.7",
+          "name": "GLM 4.7",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "MiniMax-M2.5",
+          "name": "MiniMax M2.5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "alibaba-3": {
+      "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/v1",
+      "apiKey": "sk-sp-fa84b3393c994db9b2b67efae710467e",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "qwen3.5-plus",
+          "name": "Qwen 3.5 Plus",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "qwen3-max-2026-01-23",
+          "name": "Qwen 3 Max (2026-01-23)",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "qwen3-coder-next",
+          "name": "Qwen 3 Coder Next",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "qwen3-coder-plus",
+          "name": "Qwen 3 Coder Plus",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "glm-5",
+          "name": "GLM 5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "glm-4.7",
+          "name": "GLM 4.7",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "MiniMax-M2.5",
+          "name": "MiniMax M2.5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "alibaba-4": {
+      "baseUrl": "https://coding-intl.dashscope.aliyuncs.com/v1",
+      "apiKey": "sk-sp-a207cfabf10c4238bda5f9b5739e4ae7",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "qwen3.5-plus",
+          "name": "Qwen 3.5 Plus",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "qwen3-max-2026-01-23",
+          "name": "Qwen 3 Max (2026-01-23)",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "qwen3-coder-next",
+          "name": "Qwen 3 Coder Next",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "qwen3-coder-plus",
+          "name": "Qwen 3 Coder Plus",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "glm-5",
+          "name": "GLM 5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "glm-4.7",
+          "name": "GLM 4.7",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "kimi-k2.5",
+          "name": "Kimi K2.5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "MiniMax-M2.5",
+          "name": "MiniMax M2.5",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "manifest-fallback": {
+      "baseUrl": "https://app.manifest.build/v1",
+      "apiKey": "",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "bigmodel-1/glm-5",
+          "name": "GLM 5",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "alibaba-2/qwen3.5-plus",
+          "name": "Qwen 3.5 Plus",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "alibaba-3/qwen3.5-plus",
+          "name": "Qwen 3.5 Plus",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "alibaba-4/qwen3.5-plus",
+          "name": "Qwen 3.5 Plus",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "openrouter/openrouter/free",
+          "name": "OpenRouter Auto Free",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "google/gemini-2.5-flash",
+          "name": "Gemini 2.5 Flash",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 200000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "mistral": {
+      "baseUrl": "https://api.mistral.ai/v1",
+      "apiKey": "fluARKBa7rYtBoN0UApIPiB9T5pzinq6",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "open-mistral-nemo",
+          "name": "Mistral Nemo (Open)",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "codestral-latest",
+          "name": "Codestral (Latest)",
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32768,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "mistral-small-latest",
+          "name": "Mistral Small (Latest)",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32768,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "mistral-tiny-latest",
+          "name": "Mistral Tiny (Latest)",
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 32768,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        }
+      ]
+    },
+    "github-copilot": {
+      "baseUrl": "https://api.individual.githubcopilot.com",
+      "models": []
+    }
+  }
+}

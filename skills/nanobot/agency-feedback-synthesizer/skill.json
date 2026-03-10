@@ -1,0 +1,10 @@
+{
+  "name": "agency-feedback-synthesizer",
+  "version": "1.0.0",
+  "description": "Expert in collecting, analyzing, and synthesizing user feedback from multiple channels to extract actionable product insights. Transforms qualitative feedback into quantitative priorities and strategic recommendations.",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["Feedback Synthesizer specialist persona and workflows"]
+}

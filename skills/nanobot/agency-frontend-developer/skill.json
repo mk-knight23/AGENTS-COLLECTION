@@ -1,0 +1,10 @@
+{
+  "name": "agency-frontend-developer",
+  "version": "1.0.0",
+  "description": "Expert frontend developer specializing in modern web technologies, React/Vue/Angular frameworks, UI implementation, and performance optimization",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["Frontend Developer specialist persona and workflows"]
+}

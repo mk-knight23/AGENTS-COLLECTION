@@ -1,0 +1,32 @@
+# Runtime & conversation data
+agents/antigravity/conversations/
+agents/antigravity/brain/
+agents/antigravity/implicit/
+agents/antigravity/browser_recordings/
+agents/antigravity/html_artifacts/
+agents/antigravity/scratch/
+agents/antigravity/installation_id
+agents/openclaw/*/sessions/
+
+# System files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Large binary files
+*.bin
+*.sqlite
+*.db
+*.lock
+
+# Build artifacts
+node_modules/
+__pycache__/
+*.pyc
+dist/
+build/
+target/
+.cache/
+
+# AntiGravity runtime tracking data
+agents/antigravity/code_tracker/

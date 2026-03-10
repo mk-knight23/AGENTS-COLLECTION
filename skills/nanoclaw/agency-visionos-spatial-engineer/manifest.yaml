@@ -1,0 +1,9 @@
+skill: agency-visionos-spatial-engineer
+version: 1.0.0
+description: "Native visionOS spatial computing, SwiftUI volumetric interfaces, and Liquid Glass design implementation"
+core_version: 0.1.0
+adds: []
+modifies: []
+structured: {}
+conflicts: []
+depends: []

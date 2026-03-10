@@ -1,0 +1,16 @@
+I0226 16:13:53.993980 24309 server.go:1130] Starting language server process with pid 24309
+I0226 16:13:53.994124 24309 server.go:265] Setting GOMAXPROCS to 4
+I0226 16:13:53.994919 24309 server.go:453] Language server will attempt to listen on host 127.0.0.1
+I0226 16:13:53.995063 24309 server.go:468] Language server listening on random port at 61763 for HTTPS
+I0226 16:13:53.995082 24309 server.go:475] Language server listening on random port at 61764 for HTTP
+I0226 16:13:54.441285 24309 reconnectable_client.go:151] Connecting to extension server at port 61758
+I0226 16:13:54.442104 24309 server.go:442] Created reconnectable extension server client at port 61758
+I0226 16:13:54.444904 24309 server.go:584] Using ApiServerClientV2
+W0226 16:13:54.446142 24309 launchmanager.go:78] Entering local chrome mode! This is WRONG unless you are running tests or in eval mode on Linux.
+I0226 16:13:54.465619 24309 server.go:1564] Wrote discovery file: /Users/mkazi/.gemini/antigravity/daemon/ls_6a6b504bdd91d274.json
+I0226 16:13:54.465639 24309 server.go:1488] initialized server successfully in 471.528667ms
+I0226 16:33:15.147362 24309 client.go:416] UnifiedStateSyncClient disconnected.
+I0226 16:34:23.991494 24309 client.go:56] CEL: Sending error - type=LS_ERROR ideName=antigravity appName=antigravity_desktop version=1.19.4
+I0226 17:44:10.100377 24309 server.go:1619] Got signal terminated, shutting down
+I0226 17:44:10.100973 24309 server.go:1640] Language server shutting down
+I0226 17:44:10.102229 24309 server.go:1681] Deleted discovery file: /Users/mkazi/.gemini/antigravity/daemon/ls_6a6b504bdd91d274.json

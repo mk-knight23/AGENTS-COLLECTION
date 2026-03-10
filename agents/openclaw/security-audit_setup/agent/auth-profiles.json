@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "profiles": {
+    "manifest:default": {
+      "type": "api_key",
+      "provider": "manifest",
+      "key": "mnfst_LTm6WeGMkJQDUSuUMcpjss1Yl9Sxvnep7qEF0LZnRMk"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "agency-workflow-optimizer",
+  "version": "1.0.0",
+  "description": "Expert process improvement specialist focused on analyzing, optimizing, and automating workflows across all business functions for maximum productivity and efficiency",
+  "author": "agency-agents",
+  "license": "MIT",
+  "keywords": ["agent", "agency", "ai", "specialist"],
+  "platform": "nanoclaw",
+  "capabilities": ["Workflow Optimizer specialist persona and workflows"]
+}

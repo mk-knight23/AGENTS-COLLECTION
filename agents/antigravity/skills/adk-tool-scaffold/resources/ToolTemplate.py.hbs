@@ -1,0 +1,36 @@
+from adk.tools import BaseTool, ToolContext
+from typing import Dict, Any, Optional
+
+class {{ToolName}}Tool(BaseTool):
+"""
+{{toolDescription}}
+"""
+
+def __init__(self):
+super().__init__(
+name="{{tool_name}}",
+description="{{toolDescription}}"
+)
+
+def execute(self, inputs: Dict[str, Any], context: Optional[ToolContext] = None) -> Dict[str, Any]:
+"""
+Executes the {{ToolName}} logic.
+
+Args:
+inputs: A dictionary containing:
+- arg1: Description of arg1
+
+Returns:
+A dictionary containing the results.
+"""
+# TODO: Implement tool logic here
+pass
+
+def get_schema(self) -> Dict[str, Any]:
+return {
+"type": "object",
+"properties": {
+# TODO: Define arguments here
+},
+"required": []
+}
