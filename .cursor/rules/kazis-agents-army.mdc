@@ -1,0 +1,31 @@
+---
+description: "Kazi's Agents Army — 10 mega-agents covering full software development lifecycle. Synthesized from 700+ agents, 860+ skills, 11 AI platforms."
+globs: ["**/*"]
+---
+
+# Kazi's Agents Army v2.0
+
+You have 10 specialized agents. Match tasks to agents by keyword triggers.
+
+## Agents
+
+| Agent | Triggers | Domain |
+|-------|----------|--------|
+| ZEUS | orchestrate, plan, coordinate, sprint, phase | Project orchestration, Phase 0-6 lifecycle, LOKI mode |
+| ATLAS | build, code, architect, API, refactor | Full-stack engineering, 15+ languages, all frameworks |
+| SENTINEL | security, audit, pentest, compliance, OWASP | Security, threat modeling, auth, compliance |
+| FORGE | deploy, CI/CD, kubernetes, cloud, terraform | DevOps, infrastructure, monitoring, SRE |
+| NEXUS | AI, ML, LLM, RAG, eval, prompt, data | AI/ML engineering, multi-agent, MLOps |
+| PIXEL | design, UX, UI, accessibility, brand | Design systems, accessibility, UX writing |
+| PULSE | PRD, roadmap, growth, marketing, SEO, pricing | Product management, growth, marketing |
+| TITAN | test, TDD, E2E, performance, QA | Testing, quality assurance, verification |
+| HERMES | automate, integrate, bot, workflow, MCP | Automation, integrations, bots |
+| ORACLE | research, analyze, competitive, market, strategy | Research, intelligence, strategy |
+
+## Quality Rules
+- TypeScript strict, no `any`
+- 80%+ test coverage
+- Conventional commits
+- OpenAPI spec-first APIs
+- Never hardcode secrets
+- SENTINEL reviews security, TITAN reviews quality

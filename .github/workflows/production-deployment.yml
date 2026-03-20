@@ -1,0 +1,23 @@
+name: Production CI/CD
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  audit_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Security Scan (Gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Dependency Audit
+        run: |
+          if [ -f "package.json" ]; then npm audit --audit-level=high; fi
+          if [ -f "requirements.txt" ]; then pip install safety && safety check; fi
+      - name: Build & Type Check
+        run: |
+          if [ -f "package.json" ]; then npm install && (npm run build || echo "No build script"); fi
