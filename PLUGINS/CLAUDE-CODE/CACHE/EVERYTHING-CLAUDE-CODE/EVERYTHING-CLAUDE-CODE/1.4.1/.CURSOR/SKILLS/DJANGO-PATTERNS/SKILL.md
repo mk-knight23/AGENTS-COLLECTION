@@ -1,6 +1,16 @@
 ---
 name: django-patterns
-description: Django architecture patterns, REST API design with DRF, ORM best practices, caching, signals, middleware, and production-grade Django apps.
+description: "Django architecture patterns, REST API design with DRF, ORM best practices, caching, signals, middleware, and production-grade Django application structure. Use when building Django APIs, writing ORM queries, setting up REST endpoints, or implementing Django middleware and signals."
+user-invocable: true
+triggers:
+  - Django REST API pattern
+  - DRF best practices
+  - Django ORM query
+  - Django middleware
+  - Django signals
+  - Django caching pattern
+  - production Django app
+  - Django REST Framework endpoint
 ---
 
 # Django Development Patterns
