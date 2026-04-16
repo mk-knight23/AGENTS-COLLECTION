@@ -1,6 +1,16 @@
 ---
 name: project-guidelines-example
-description: "Example project-specific skill template based on a real production application."
+description: "Example project-specific skill template based on a real production application (Zenith AI customer discovery). Use when creating a new project-specific skill, bootstrapping project guidelines, or adapting this template for your own application context."
+user-invocable: true
+triggers:
+  - create a project skill
+  - project guidelines template
+  - bootstrap project context skill
+  - adapt skill template for my project
+  - create project-specific instructions
+  - copy this skill template
+  - project skill example
+  - customize this for my project
 ---
 
 # Project Guidelines Skill (Example)
